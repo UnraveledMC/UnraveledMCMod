@@ -1,0 +1,34 @@
+# UMCM excludes
+/lib
+
+# Netbeans excludes
+/nbproject/private
+/dist
+/build
+manifest.mf
+# Now defines that Maven CheckStyle is used
+# nb-configuration.xml
+
+# Eclipse excludes
+.project
+.classpath
+/bin
+/.settings
+
+# IntelliJ excludes
+*.iml
+*.ipr
+*.iws
+/.idea
+
+# Maven excludes
+/target
+
+# OS generated files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+/nbproject/
