@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.SENIOR_ADMIN, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
 @CommandParameters(description = "Removes essentials playerdata", usage = "/<command>")
-public class Command_wipeuserdata extends FreedomCommand
+public class Command_wipeessdata extends FreedomCommand
 {
 
     @Override
@@ -21,11 +21,12 @@ public class Command_wipeuserdata extends FreedomCommand
             return true;
         }
 
-        FUtil.adminAction(sender.getName(), "Wiping Essentials playerdata", true);
+        FUtil.adminAction(sender.getName(), "Wiping warps and essentials playerdata", true);
 
         FUtil.deleteFolder(new File(server.getPluginManager().getPlugin("UMC-Essentials").getDataFolder(), "userdata"));
+        FUtil.deleteFolder(new File(server.getPluginManager().getPlugin("UMC-Essentials").getDataFolder(), "warps"));
 
-        msg("All playerdata deleted.");
+        msg("All essentials data deleted.");
         return true;
     }
 }
