@@ -1,5 +1,5 @@
 # UnraveledMCMod #
-A server modification for the UnraveledMC server
+A server modification for the UnraveledMC server.
 
 
 Please read the following below:
