@@ -14,11 +14,10 @@ import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
 @CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH, blockHostConsole = true)
-@CommandParameters(description = "Bans a player", usage = "/<command> <username> [reason]", aliases = "ban")
-public class Command_gtfo extends FreedomCommand
+@CommandParameters(description = "Bans a player", usage = "/<command> <username> [reason]", aliases = "gtfo")
+public class Command_ban extends FreedomCommand
 {
 
     @Override

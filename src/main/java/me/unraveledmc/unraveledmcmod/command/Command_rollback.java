@@ -25,10 +25,21 @@ public class Command_rollback extends FreedomCommand
             return false;
         }
         
-        final Player player = getPlayer(args[0]);
-        final String playerName;
+        final Player player;
+        String playerName;
         
-         if (player != null)
+        if (args.length == 2 && args[0].equalsIgnoreCase("undo"))
+        {
+            playerName = args[1];
+        }
+        else
+        {
+            playerName = args[0];
+        }
+        
+        player = getPlayer(playerName);
+        
+        if (player != null)
         {
             playerName = player.getName();
         }
@@ -52,14 +63,11 @@ public class Command_rollback extends FreedomCommand
             return true;
         }
 
-        if (args.length == 2)
+        if (args.length == 2 && args[0].equalsIgnoreCase("undo"))
         {
-            if (args[0].equalsIgnoreCase("undo"))
-            {
-                FUtil.adminAction(sender.getName(), "Reverting rollback for player: " + playerName, false);
-                plugin.cpb.undoRollback(playerName);
-                return true;
-            }
+            FUtil.adminAction(sender.getName(), "Reverting rollback for player: " + playerName, false);
+            plugin.cpb.undoRollback(playerName);
+            return true;
         }
         return false;
     }

@@ -20,22 +20,19 @@ public class Command_wipeflatlands extends FreedomCommand
 
         FUtil.bcastMsg("Server is going offline for flatlands wipe.", ChatColor.GRAY);
 
-        // Wipe the CoreProtect data
-        new BukkitRunnable()
-        {
-            @Override
-            public void run()
-            {
-                plugin.cpb.clearDatabase(plugin.wm.flatlands.getWorld());
-            }
-        }.runTaskAsynchronously(plugin);
-
         for (Player player : server.getOnlinePlayers())
         {
             player.kickPlayer("Server is going offline for flatlands wipe, come back in a few minutes.");
         }
 
-        server.shutdown();
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+                plugin.cpb.clearDatabase(plugin.wm.flatlands.getWorld(), true);
+            }
+        }.runTaskAsynchronously(plugin);
 
         return true;
     }

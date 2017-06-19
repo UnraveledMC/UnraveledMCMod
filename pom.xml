@@ -57,9 +57,9 @@
         <dependency>
             <groupId>net.totalfreedom</groupId>
             <artifactId>bukkittelnet</artifactId>
-            <version>4.3</version>
+            <version>4.5</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/BukkitTelnet-4.3.jar</systemPath>
+            <systemPath>${project.basedir}/lib/BukkitTelnet-4.5.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -125,27 +125,6 @@
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
-            </plugin>
-
-            <!-- Antrun -->
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <phase>initialize</phase>
-                        <configuration>
-                            <target>
-                                <propertyfile file="build.properties" comment="Build information. Edit this to your liking.">
-                                    <entry key="buildAuthor" default="unknown" />
-                                </propertyfile>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
             <!-- Checkstyle -->
