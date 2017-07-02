@@ -1,12 +1,12 @@
 # UnraveledMCMod #
 A server modification for the UnraveledMC server
 
-![Spigot](https://unraveledmc.com/githubapi/?spigotver)
-![Aero](https://unraveledmc.com/githubapi/?aerover)
-![BukkitTelnet](https://unraveledmc.com/githubapi/?bukkittelnetver)
-![LibsDisguises](https://unraveledmc.com/githubapi/?libsdisguisesver)
-![CoreProtect](https://unraveledmc.com/githubapi/?coreprotectver)
-![JDA](https://unraveledmc.com/githubapi/?jdaver)
+![Spigot](https://unraveledmc.com/githubapi?spigotver)
+![Aero](https://unraveledmc.com/githubapi?aerover)
+![BukkitTelnet](https://unraveledmc.com/githubapi?bukkittelnetver)
+![LibsDisguises](https://unraveledmc.com/githubapi?libsdisguisesver)
+![CoreProtect](https://unraveledmc.com/githubapi?coreprotectver)
+![JDA](https://unraveledmc.com/githubapi?jdaver)
 
 Please read the following below:
 # TotalFreedomMod #
