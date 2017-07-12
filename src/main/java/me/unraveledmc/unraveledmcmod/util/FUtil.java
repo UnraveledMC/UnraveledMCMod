@@ -44,7 +44,7 @@ public class FUtil
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
     // Leave the TFDEVS List alone, those are the TotalFreedom Developers.
     public static final List<String> TFDEVS = Arrays.asList("Madgeek1450", "Prozza", "Wild1145", "WickedGamingUK", "aggelosQQ", "OxLemonxO");
-    public static final List<String> UMCDEVS = Arrays.asList("CreeperSeth", "OxLemonxO", "RobinGall2910", "AwesomePinch", "aggelosQQ", "irix");
+    public static final List<String> UMCDEVS = Arrays.asList("OxLemonxO", "RobinGall2910", "AwesomePinch", "aggelosQQ", "irix");
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<>();
     public static final List<ChatColor> CHAT_COLOR_POOL = Arrays.asList(

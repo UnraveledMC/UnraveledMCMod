@@ -21,7 +21,6 @@ server:
 
   # All players who show up as executive
   execs:
-    - CreeperSeth
     - OxLemonxO
     - irix
     - Hankie
@@ -318,8 +317,8 @@ protectarea:
   auto_protect_spawnpoints: true
   auto_protect_radius: 25.0
 
-# Host Sender Names - Names that indicate automated services or host-based consoles you want to block from using some commands.
-# Make sure these are all lower-case.
+# Host Sender Names -  that indicate automated services or host-based consoles you want to block from using some commands.
+# Make sure these are all lower-caseNames.
 host_sender_names:
   - rcon
   - remotebukkit
