@@ -55,6 +55,12 @@ public class Command_idfk extends FreedomCommand
                 playerSender.setVelocity(new Vector(0, 1000, 0));
                 msg("*insert shooting stars meme here*");
                 break;
+            case "fuck"
+                playerSender.chat("wow robin is gay xdxdxd");
+                msg("i tried")
+                msg("and as in i tried as in robin tried to code this in")
+                msg("lol xd")
+                break;
             default:
                 return false;
         }
