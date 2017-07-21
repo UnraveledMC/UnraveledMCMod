@@ -57,9 +57,9 @@ public class Command_idfk extends FreedomCommand
                 break;
             case "fuck"
                 playerSender.chat("wow robin is gay xdxdxd");
-                msg("i tried")
-                msg("and as in i tried as in robin tried to code this in")
-                msg("lol xd")
+                msg("i tried");
+                msg("and as in i tried as in robin tried to code this in");
+                msg("lol xd");
                 break;
             default:
                 return false;
