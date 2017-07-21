@@ -6,12 +6,13 @@ import org.bukkit.ChatColor;
 public enum Rank implements Displayable
 {
 
-    IMPOSTOR("an", "Impostor", Type.PLAYER, "Imp", ChatColor.YELLOW),
+    IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.YELLOW),
     NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.GREEN),
     OP("an", "OP", Type.PLAYER, "OP", ChatColor.RED),
-    SUPER_ADMIN("a", "Super Admin", Type.ADMIN, "SA", ChatColor.AQUA),
-    TELNET_ADMIN("a", "Telnet Admin", Type.ADMIN, "STA", ChatColor.DARK_GREEN),
-    SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, "SrA", ChatColor.GOLD),
+    //The following has been renamed to reflect the changes on the server.
+    SUPER_ADMIN("a", "Super Barrett", Type.ADMIN, "SB", ChatColor.AQUA),
+    TELNET_ADMIN("a", "Super Telnick Admason", Type.ADMIN, "STA", ChatColor.DARK_GREEN),
+    SENIOR_ADMIN("a", "Senior Waters Admin", Type.ADMIN, "SWA", ChatColor.GOLD),
     TELNET_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE),
     SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE);
     @Getter
