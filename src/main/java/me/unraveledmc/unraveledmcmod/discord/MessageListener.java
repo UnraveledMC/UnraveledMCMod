@@ -21,8 +21,8 @@ public class MessageListener extends ListenerAdapter
                     Admin admin = Discord.LINK_CODES.get(code);
                     admin.setDiscordID(event.getMessage().getAuthor().getId());
                     Discord.LINK_CODES.remove(code);
-                    Discord.sendMessage(event.getChannel(), "Successfully linked this discord account to the minecraft account `" + admin.getName() + "`");
-                    Discord.sendMessage(event.getChannel(), "Now when you are an impostor you may use `/verify` to verify.");
+                    Discord.sendMessage(event.getChannel(), "Linking successful. Now this Discord account is linked with the Minecraft account `" + admin.getName() + "`.");
+                    Discord.sendMessage(event.getChannel(), "Now when you are an impostor on the server you may now use `/verify` to verify.");
                 }
             }
         }
