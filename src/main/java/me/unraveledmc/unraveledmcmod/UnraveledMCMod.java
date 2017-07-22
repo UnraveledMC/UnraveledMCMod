@@ -50,8 +50,8 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
     public static final String CONFIG_FILENAME = "config.yml";
     //
     public static String pluginName;
-    public static String pluginVersion = "2.0.0";
-    public static String buildDate = "07/07/2017";
+    public static String pluginVersion = "2.0.1";
+    public static String buildDate = "07/22/2017";
     public static String compiledBy = "CreeperSeth";
     //
     public MainConfig config;
