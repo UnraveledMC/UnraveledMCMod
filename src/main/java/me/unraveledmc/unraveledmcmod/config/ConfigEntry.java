@@ -34,6 +34,7 @@ public enum ConfigEntry
     SERVER_NAME(String.class, "server.name"),
     SERVER_ADDRESS(String.class, "server.address"),
     SERVER_OWNERS(List.class, "server.owners"),
+    SERVER_FOUNDERS(List.class, "server.founders"),
     SERVER_EXECS(List.class, "server.execs"),
     SERVER_MASTER_BUILDERS(List.class, "server.master_builders"),
     SERVER_DONORS(List.class, "server.donors"),
@@ -58,11 +59,13 @@ public enum ConfigEntry
     SHOP_CRESCENT_ROSE_USE_PRICE(Integer.class, "shop.crescent_rose_use_price"),
     SHOP_MINIGUN_PRICE(Integer.class, "shop.minigun_price"),
     //
-    ADMIN_LOGIN_MESSAGE(List.class, "admins.admin_login_message"),
-    ADMINLIST_CLEAN_THESHOLD_HOURS(Integer.class, "admins.adminlist.clean_threshold_hours"),
-    ADMINLIST_CONSOLE_IS_SENIOR(Boolean.class, "admins.adminlist.console_is_senior"),
-    ADMIN_ONLY_MODE(Boolean.class, "admins.admin_only_mode"),
-    NOADMIN_IPS(List.class, "admins.noadmin_ips"),
+    STAFF_LOGIN_MESSAGE(List.class, "staff.staff_login_message"),
+    STAFF_APPLICATION_URL(String.class, "staff.staff_application_url"),
+    STAFFLIST_CLEAN_THESHOLD_HOURS(Integer.class, "staff.stafflist.clean_threshold_hours"),
+    STAFFLIST_CONSOLE_IS_SENIOR(Boolean.class, "staff.stafflist.console_is_senior"),
+    STAFF_ONLY_MODE(Boolean.class, "staff.staff_only_mode"),
+    NOSTAFF_IPS(List.class, "staff.nostaff_ips"),
+    //
     DISABLE_NIGHT(Boolean.class, "disable.night"),
     DISABLE_WEATHER(Boolean.class, "disable.weather"),
     //

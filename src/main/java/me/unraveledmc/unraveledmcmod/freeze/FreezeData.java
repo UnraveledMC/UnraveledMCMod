@@ -57,7 +57,7 @@ public class FreezeData
         location = player.getLocation(); // Blockify location
         FUtil.setFlying(player, true); // Avoid infinite falling
 
-        if (fPlayer.getPlugin().al.isAdminImpostor(player))
+        if (fPlayer.getPlugin().al.isStaffImposter(player))
         {
             return; // Don't run unfreeze task for impostors
         }

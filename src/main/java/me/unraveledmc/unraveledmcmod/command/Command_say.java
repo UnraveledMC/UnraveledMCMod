@@ -1,7 +1,7 @@
 package me.unraveledmc.unraveledmcmod.command;
 
 import me.unraveledmc.unraveledmcmod.rank.Rank;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
@@ -9,7 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Broadcasts the given message as the console, includes sender name.", usage = "/<command> <message>")
 public class Command_say extends FreedomCommand
 {
@@ -45,7 +45,7 @@ public class Command_say extends FreedomCommand
         
         if (!senderIsConsole)
         {
-            Admin admin = plugin.al.getAdmin(playerSender);
+            StaffMember admin = plugin.al.getStaffMember(playerSender);
             if (admin.hasCustomShoutColor())
             {
                 color = admin.getShoutColor();

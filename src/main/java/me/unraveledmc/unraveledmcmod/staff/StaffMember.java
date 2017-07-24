@@ -1,4 +1,4 @@
-package me.unraveledmc.unraveledmcmod.admin;
+package me.unraveledmc.unraveledmcmod.staff;
 
 import com.google.common.collect.Lists;
 import java.util.Date;
@@ -16,7 +16,7 @@ import org.apache.commons.lang3.Validate;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
-public class Admin implements ConfigLoadable, ConfigSavable, Validatable
+public class StaffMember implements ConfigLoadable, ConfigSavable, Validatable
 {
 
     @Getter
@@ -29,7 +29,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     private boolean active = true;
     @Getter
     @Setter
-    private Rank rank = Rank.SUPER_ADMIN;
+    private Rank rank = Rank.MOD;
     @Getter
     private final List<String> ips = Lists.newArrayList();
     @Getter
@@ -48,14 +48,14 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     @Setter
     private String tag = null;
 
-    public Admin(Player player)
+    public StaffMember(Player player)
     {
         this.configKey = player.getName().toLowerCase();
         this.name = player.getName();
         this.ips.add(Ips.getIp(player));
     }
 
-    public Admin(String configKey)
+    public StaffMember(String configKey)
     {
         this.configKey = configKey;
     }
@@ -65,7 +65,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     {
         final StringBuilder output = new StringBuilder();
 
-        output.append("Admin: ").append(name).append("\n")
+        output.append("Staff member: ").append(name).append("\n")
                 .append("- IPs: ").append(StringUtils.join(ips, ", ")).append("\n")
                 .append("- Last Login: ").append(FUtil.dateToString(lastLogin)).append("\n")
                 .append("- Custom Login Message: ").append(loginMessage).append("\n")
@@ -104,7 +104,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     @Override
     public void saveTo(ConfigurationSection cs)
     {
-        Validate.isTrue(isValid(), "Could not save admin entry: " + name + ". Entry not valid!");
+        Validate.isTrue(isValid(), "Could not save staff member entry: " + name + ". Entry not valid!");
         cs.set("username", name);
         cs.set("active", active);
         cs.set("rank", rank.toString());

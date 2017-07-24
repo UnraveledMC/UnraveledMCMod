@@ -6,9 +6,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
-@CommandParameters(description = "Talk privately with other admins.", usage = "/<command> <message>", aliases = "o,ac")
-public class Command_adminchat extends FreedomCommand
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
+@CommandParameters(description = "Talk privately with other staff members.", usage = "/<command> <message>", aliases = "o,ac")
+public class Command_staffchat extends FreedomCommand
 {
 
     @Override

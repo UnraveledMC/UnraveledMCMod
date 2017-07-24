@@ -10,9 +10,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
-@CommandParameters(description = "Go to the AdminWorld.",
+@CommandParameters(description = "Go to the StaffWorld.",
         usage = "/<command> [guest < list | purge | add <player> | remove <player> > | time <morning | noon | evening | night> | weather <off | on | storm>]", aliases = "aw")
-public class Command_adminworld extends FreedomCommand
+public class Command_staffworld extends FreedomCommand
 {
 
     private enum CommandMode
@@ -62,30 +62,30 @@ public class Command_adminworld extends FreedomCommand
                         return true;
                     }
 
-                    World adminWorld = null;
+                    World staffWorld = null;
                     try
                     {
-                        adminWorld = plugin.wm.adminworld.getWorld();
+                        staffWorld = plugin.wm.staffworld.getWorld();
                     }
                     catch (Exception ex)
                     {
                     }
 
-                    if (adminWorld == null || playerSender.getWorld() == adminWorld)
+                    if (staffWorld == null || playerSender.getWorld() == staffWorld)
                     {
                         msg("Going to the main world.");
                         playerSender.teleport(server.getWorlds().get(0).getSpawnLocation());
                     }
                     else
                     {
-                        if (plugin.wm.adminworld.canAccessWorld(playerSender))
+                        if (plugin.wm.staffworld.canAccessWorld(playerSender))
                         {
-                            msg("Going to the AdminWorld.");
-                            plugin.wm.adminworld.sendToWorld(playerSender);
+                            msg("Going to the StaffWorld.");
+                            plugin.wm.staffworld.sendToWorld(playerSender);
                         }
                         else
                         {
-                            msg("You don't have permission to access the AdminWorld.");
+                            msg("You don't have permission to access the StaffWorld.");
                         }
                     }
 
@@ -99,13 +99,13 @@ public class Command_adminworld extends FreedomCommand
                     {
                         if ("list".equalsIgnoreCase(args[1]))
                         {
-                            msg("AdminWorld guest list: " + plugin.wm.adminworld.guestListToString());
+                            msg("StaffWorld guest list: " + plugin.wm.staffworld.guestListToString());
                         }
                         else if ("purge".equalsIgnoreCase(args[1]))
                         {
                             assertCommandPerms(sender, playerSender);
-                            plugin.wm.adminworld.purgeGuestList();
-                            FUtil.adminAction(sender.getName(), "AdminWorld guest list purged.", false);
+                            plugin.wm.staffworld.purgeGuestList();
+                            FUtil.adminAction(sender.getName(), "StaffWorld guest list purged.", false);
                         }
                         else
                         {
@@ -126,9 +126,9 @@ public class Command_adminworld extends FreedomCommand
                                 return true;
                             }
 
-                            if (plugin.wm.adminworld.addGuest(player, playerSender))
+                            if (plugin.wm.staffworld.addGuest(player, playerSender))
                             {
-                                FUtil.adminAction(sender.getName(), "AdminWorld guest added: " + player.getName(), false);
+                                FUtil.adminAction(sender.getName(), "StaffWorld guest added: " + player.getName(), false);
                             }
                             else
                             {
@@ -137,10 +137,10 @@ public class Command_adminworld extends FreedomCommand
                         }
                         else if ("remove".equals(args[1]))
                         {
-                            final Player player = plugin.wm.adminworld.removeGuest(args[2]);
+                            final Player player = plugin.wm.staffworld.removeGuest(args[2]);
                             if (player != null)
                             {
-                                FUtil.adminAction(sender.getName(), "AdminWorld guest removed: " + player.getName(), false);
+                                FUtil.adminAction(sender.getName(), "StaffWorld guest removed: " + player.getName(), false);
                             }
                             else
                             {
@@ -164,8 +164,8 @@ public class Command_adminworld extends FreedomCommand
                         WorldTime timeOfDay = WorldTime.getByAlias(args[1]);
                         if (timeOfDay != null)
                         {
-                            plugin.wm.adminworld.setTimeOfDay(timeOfDay);
-                            msg("AdminWorld time set to: " + timeOfDay.name());
+                            plugin.wm.staffworld.setTimeOfDay(timeOfDay);
+                            msg("StaffWorld time set to: " + timeOfDay.name());
                         }
                         else
                         {
@@ -188,8 +188,8 @@ public class Command_adminworld extends FreedomCommand
                         WorldWeather weatherMode = WorldWeather.getByAlias(args[1]);
                         if (weatherMode != null)
                         {
-                            plugin.wm.adminworld.setWeatherMode(weatherMode);
-                            msg("AdminWorld weather set to: " + weatherMode.name());
+                            plugin.wm.staffworld.setWeatherMode(weatherMode);
+                            msg("StaffWorld weather set to: " + weatherMode.name());
                         }
                         else
                         {
@@ -225,7 +225,7 @@ public class Command_adminworld extends FreedomCommand
     // TODO: Redo this properly
     private void assertCommandPerms(CommandSender sender, Player playerSender) throws PermissionDeniedException
     {
-        if (!(sender instanceof Player) || playerSender == null || !isAdmin(sender))
+        if (!(sender instanceof Player) || playerSender == null || !isStaffMember(sender))
         {
             throw new PermissionDeniedException();
         }

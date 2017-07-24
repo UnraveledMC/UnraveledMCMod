@@ -38,7 +38,7 @@ public class Command_potion extends FreedomCommand
             }
             else if (args[0].equalsIgnoreCase("clearall"))
             {
-                if (!(plugin.al.isAdmin(sender) || senderIsConsole))
+                if (!(plugin.al.isStaffMember(sender) || senderIsConsole))
                 {
                     noPerms();
                     return true;
@@ -69,7 +69,7 @@ public class Command_potion extends FreedomCommand
 
                 if (!target.equals(playerSender))
                 {
-                    if (!plugin.al.isAdmin(sender))
+                    if (!plugin.al.isStaffMember(sender))
                     {
                         msg("Only superadmins can clear potion effects from other players.");
                         return true;
@@ -113,7 +113,7 @@ public class Command_potion extends FreedomCommand
 
                 if (!target.equals(playerSender))
                 {
-                    if (!plugin.al.isAdmin(sender))
+                    if (!plugin.al.isStaffMember(sender))
                     {
                         sender.sendMessage("Only superadmins can apply potion effects to other players.");
                         return true;

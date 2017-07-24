@@ -93,7 +93,7 @@ public class ChatManager extends FreedomService
         }
 
         // Check for caps
-        if (!plugin.al.isAdmin(player))
+        if (!plugin.al.isStaffMember(player))
         {
             if (message.length() >= 6)
             {
@@ -112,7 +112,7 @@ public class ChatManager extends FreedomService
             }
         }
         
-        if (!plugin.al.isAdmin(player))
+        if (!plugin.al.isStaffMember(player))
         {
             for (String domain : DISGUSTING_HOST_DOMAINS)
             {
@@ -147,7 +147,7 @@ public class ChatManager extends FreedomService
         }
         
         // Check for mentions
-        Boolean mentionEveryone = ChatColor.stripColor(message).toLowerCase().contains("@everyone") && plugin.al.isAdmin(player);
+        Boolean mentionEveryone = ChatColor.stripColor(message).toLowerCase().contains("@everyone") && plugin.al.isStaffMember(player);
         for (Player p : server.getOnlinePlayers())
         {
             if (ChatColor.stripColor(message).toLowerCase().contains("@" + p.getName().toLowerCase()) || mentionEveryone)
@@ -167,7 +167,7 @@ public class ChatManager extends FreedomService
 
         for (Player player : server.getOnlinePlayers())
         {
-            if (plugin.al.isAdmin(player))
+            if (plugin.al.isStaffMember(player))
             {
                 ChatColor cc = acc;
                 if (acr == true)
@@ -198,7 +198,7 @@ public class ChatManager extends FreedomService
     {
         for (Player player : server.getOnlinePlayers())
         {
-            if (plugin.al.isAdmin(player))
+            if (plugin.al.isStaffMember(player))
             {
                 FUtil.playerMsg(player, ChatColor.RED + "[REPORTS] " + ChatColor.GOLD + reporter.getName() + " has reported " + reported.getName() + " for " + report);
             }

@@ -38,7 +38,7 @@ public class LevelManager extends FreedomService
     {
         Player player = event.getPlayer();
         Level level = getLevel(player);
-        if (!plugin.al.isAdmin(player) && !ConfigEntry.SERVER_MASTER_BUILDERS.getStringList().contains(player.getName()))
+        if (!plugin.al.isStaffMember(player) && !ConfigEntry.SERVER_MASTER_BUILDERS.getStringList().contains(player.getName()))
         {
             plugin.pl.getPlayer(player).setTag(level.getTag());
         }

@@ -36,9 +36,9 @@ public class Command_cartsit extends FreedomCommand
                 return true;
             }
         }
-        else if (targetPlayer != playerSender && !isAdmin(sender))
+        else if (targetPlayer != playerSender && !isStaffMember(sender))
         {
-            sender.sendMessage("Only superadmins can select another player as a /cartsit target.");
+            sender.sendMessage("Only staff members can select another player as a /cartsit target.");
             return true;
         }
 

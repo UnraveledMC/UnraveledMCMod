@@ -7,13 +7,13 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.player.FPlayer;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH, blockHostConsole = true)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "Run any command on all users, username placeholder = ?.", usage = "/<command> [fluff] ? [fluff] ?")
 public class Command_wildcard extends FreedomCommand
 {
@@ -77,7 +77,7 @@ public class Command_wildcard extends FreedomCommand
         msg("No, hell no, that is rouge activity right there, this has been logged!", ChatColor.RED);
         if (!sic)
         {
-            Admin admin = plugin.al.getAdmin(p);
+            StaffMember admin = plugin.al.getStaffMember(p);
             admin.setActive(false);
             plugin.al.save();
             plugin.al.updateTables();

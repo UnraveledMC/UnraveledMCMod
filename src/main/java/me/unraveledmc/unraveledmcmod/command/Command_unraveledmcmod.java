@@ -24,7 +24,7 @@ public class Command_unraveledmcmod extends FreedomCommand
                 return false;
             }
 
-            if (!plugin.al.isAdmin(sender))
+            if (!plugin.al.isStaffMember(sender))
             {
                 noPerms();
                 return true;

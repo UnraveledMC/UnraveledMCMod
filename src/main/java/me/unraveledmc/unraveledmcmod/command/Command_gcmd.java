@@ -6,7 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH, blockHostConsole = true)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "Send a command as someone else.", usage = "/<command> <fromname> <outcommand>", aliases = "sudo")
 public class Command_gcmd extends FreedomCommand
 {
@@ -34,9 +34,9 @@ public class Command_gcmd extends FreedomCommand
             msg("The command you are trying to send is blocked");
             return true;
         }
-        if (plugin.al.isAdmin(player))
+        if (plugin.al.isStaffMember(player))
         {
-            msg("You can not force an admin to run a command");
+            msg("You can not force a staff member to run a command");
             return true;
         }
         try

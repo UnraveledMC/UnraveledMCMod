@@ -28,7 +28,7 @@ public class Command_survival extends FreedomCommand
             return true;
         }
 
-        checkRank(Rank.SUPER_ADMIN);
+        checkRank(Rank.MOD);
 
         if (args[0].equals("-a"))
         {

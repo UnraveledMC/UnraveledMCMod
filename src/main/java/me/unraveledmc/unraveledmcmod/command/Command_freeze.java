@@ -8,7 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Freeze players (toggles on and off).", usage = "/<command> [target | purge]", aliases = "fr")
 public class Command_freeze extends FreedomCommand
 {
@@ -31,7 +31,7 @@ public class Command_freeze extends FreedomCommand
             FUtil.adminAction(sender.getName(), "Enabling global player freeze", false);
             for (Player player : server.getOnlinePlayers())
             {
-                if (!isAdmin(player))
+                if (!isStaffMember(player))
                 {
                     msg(player, "You have been frozen due to rulebreakers, you will be unfrozen soon.", ChatColor.RED);
                 }

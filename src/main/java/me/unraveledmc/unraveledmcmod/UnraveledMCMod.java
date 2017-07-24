@@ -2,7 +2,7 @@ package me.unraveledmc.unraveledmcmod;
 
 import me.unraveledmc.unraveledmcmod.fun.Trailer;
 import java.io.File;
-import me.unraveledmc.unraveledmcmod.admin.AdminList;
+import me.unraveledmc.unraveledmcmod.staff.StaffList;
 import me.unraveledmc.unraveledmcmod.banning.BanManager;
 import me.unraveledmc.unraveledmcmod.banning.PermbanList;
 import me.unraveledmc.unraveledmcmod.blocking.BlockBlocker;
@@ -51,7 +51,7 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
     //
     public static String pluginName;
     public static String pluginVersion = "2.0.1";
-    public static String buildDate = "07/22/2017";
+    public static String buildDate = "07/23/2017";
     public static String compiledBy = "CreeperSeth";
     //
     public MainConfig config;
@@ -62,7 +62,7 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
     public SavedFlags sf;
     public WorldManager wm;
     public LogViewer lv;
-    public AdminList al;
+    public StaffList al;
     public RankManager rm;
     public CommandLoader cl;
     public CommandBlocker cb;
@@ -148,7 +148,7 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
 
         BackupManager backups = new BackupManager(this);
         backups.createBackups(UnraveledMCMod.CONFIG_FILENAME, true);
-        backups.createBackups(AdminList.CONFIG_FILENAME);
+        backups.createBackups(StaffList.CONFIG_FILENAME);
         backups.createBackups(PermbanList.CONFIG_FILENAME);
 
         config = new MainConfig(this);
@@ -160,7 +160,7 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
         sf = services.registerService(SavedFlags.class);
         wm = services.registerService(WorldManager.class);
         lv = services.registerService(LogViewer.class);
-        al = services.registerService(AdminList.class);
+        al = services.registerService(StaffList.class);
         rm = services.registerService(RankManager.class);
         lvm = services.registerService(LevelManager.class);
         cl = services.registerService(CommandLoader.class);

@@ -13,7 +13,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.IMPOSTOR, source = SourceType.BOTH)
-@CommandParameters(description = "Lists the real names of all online players.", usage = "/<command> [-a | -i | -f]", aliases = "who")
+@CommandParameters(description = "Lists the real names of all online players.", usage = "/<command> [-s | -i | -f]", aliases = "who")
 public class Command_list extends FreedomCommand
 {
 
@@ -21,7 +21,7 @@ public class Command_list extends FreedomCommand
     {
 
         PLAYERS,
-        ADMINS,
+        STAFF,
         FAMOUS_PLAYERS,
         IMPOSTORS;
     }
@@ -50,8 +50,8 @@ public class Command_list extends FreedomCommand
         {
             switch (args[0])
             {
-                case "-a":
-                    listFilter = ListFilter.ADMINS;
+                case "-s":
+                    listFilter = ListFilter.STAFF;
                     break;
                 case "-i":
                     listFilter = ListFilter.IMPOSTORS;
@@ -78,12 +78,12 @@ public class Command_list extends FreedomCommand
         final List<String> names = new ArrayList<>();
         for (Player player : server.getOnlinePlayers())
         {
-            if (listFilter == ListFilter.ADMINS && !plugin.al.isAdmin(player))
+            if (listFilter == ListFilter.STAFF && !plugin.al.isStaffMember(player))
             {
                 continue;
             }
 
-            if (listFilter == ListFilter.IMPOSTORS && !plugin.al.isAdminImpostor(player))
+            if (listFilter == ListFilter.IMPOSTORS && !plugin.al.isStaffImposter(player))
             {
                 continue;
             }

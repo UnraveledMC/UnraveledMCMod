@@ -2,7 +2,7 @@ package me.unraveledmc.unraveledmcmod.command;
 
 import lombok.Getter;
 import me.unraveledmc.unraveledmcmod.UnraveledMCMod;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.player.PlayerData;
 import me.unraveledmc.unraveledmcmod.rank.Rank;
 import me.unraveledmc.unraveledmcmod.util.FLog;
@@ -139,19 +139,19 @@ public abstract class FreedomCommand extends AbstractCommandBase<UnraveledMCMod>
         msg(sender, message);
     }
 
-    protected boolean isAdmin(CommandSender sender)
+    protected boolean isStaffMember(CommandSender sender)
     {
-        return plugin.al.isAdmin(sender);
+        return plugin.al.isStaffMember(sender);
     }
 
-    protected Admin getAdmin(CommandSender sender)
+    protected StaffMember getStaffMember(CommandSender sender)
     {
-        return plugin.al.getAdmin(sender);
+        return plugin.al.getStaffMember(sender);
     }
 
-    protected Admin getAdmin(Player player)
+    protected StaffMember getStaffMember(Player player)
     {
-        return plugin.al.getAdmin(player);
+        return plugin.al.getStaffMember(player);
     }
 
     protected PlayerData getData(Player player)

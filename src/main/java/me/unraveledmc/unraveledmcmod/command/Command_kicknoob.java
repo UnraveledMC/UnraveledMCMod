@@ -8,20 +8,20 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.SENIOR_ADMIN, source = SourceType.BOTH, blockHostConsole = true)
-@CommandParameters(description = "Kick all non-superadmins on server.", usage = "/<command>")
+@CommandParameters(description = "Kick all non-staff on server.", usage = "/<command>")
 public class Command_kicknoob extends FreedomCommand
 {
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        FUtil.adminAction(sender.getName(), "Disconnecting all non-superadmins.", true);
+        FUtil.adminAction(sender.getName(), "Disconnecting all non-staff.", true);
 
         for (Player player : server.getOnlinePlayers())
         {
-            if (!plugin.al.isAdmin(player))
+            if (!plugin.al.isStaffMember(player))
             {
-                player.kickPlayer(ChatColor.RED + "All non-superadmins were kicked by " + sender.getName() + ".");
+                player.kickPlayer(ChatColor.RED + "All non-staff were kicked by " + sender.getName() + ".");
             }
         }
 

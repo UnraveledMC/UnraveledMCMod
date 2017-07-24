@@ -7,14 +7,13 @@ public enum Rank implements Displayable
 {
 
     IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.YELLOW),
-    NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.GREEN),
-    OP("an", "OP", Type.PLAYER, "OP", ChatColor.RED),
-    //The following has been renamed to reflect the changes on the server.
-    SUPER_ADMIN("a", "Moderator", Type.ADMIN, "Mod", ChatColor.DARK_GREEN),
-    TELNET_ADMIN("an", "Admin", Type.ADMIN, "Admin", ChatColor.RED),
-    SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, "SrA", ChatColor.GOLD),
-    TELNET_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE),
-    SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE);
+    NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.WHITE),
+    OP("an", "OP", Type.PLAYER, "OP", ChatColor.RED ),
+    MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.GREEN),
+    ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.BLUE),
+    SENIOR_ADMIN("a", "Senior Administrator", Type.STAFF, "SrA", ChatColor.GOLD),
+    ADMIN_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE),
+    SENIOR_CONSOLE("the", "Console", Type.STAFF_CONSOLE, "Console", ChatColor.DARK_PURPLE);
     @Getter
     private final Type type;
     @Getter
@@ -64,7 +63,7 @@ public enum Rank implements Displayable
 
     public boolean isConsole()
     {
-        return getType() == Type.ADMIN_CONSOLE;
+        return getType() == Type.STAFF_CONSOLE;
     }
 
     public int getLevel()
@@ -87,9 +86,9 @@ public enum Rank implements Displayable
         return getConsoleVariant().getLevel() >= rank.getConsoleVariant().getLevel();
     }
 
-    public boolean isAdmin()
+    public boolean isStaff()
     {
-        return getType() == Type.ADMIN || getType() == Type.ADMIN_CONSOLE;
+        return getType() == Type.STAFF || getType() == Type.STAFF_CONSOLE;
     }
 
     public boolean hasConsoleVariant()
@@ -101,9 +100,9 @@ public enum Rank implements Displayable
     {
         switch (this)
         {
-            case TELNET_ADMIN:
-            case TELNET_CONSOLE:
-                return TELNET_CONSOLE;
+            case ADMIN:
+            case ADMIN_CONSOLE:
+                return ADMIN_CONSOLE;
             case SENIOR_ADMIN:
             case SENIOR_CONSOLE:
                 return SENIOR_CONSOLE;
@@ -116,9 +115,9 @@ public enum Rank implements Displayable
     {
         switch (this)
         {
-            case TELNET_ADMIN:
-            case TELNET_CONSOLE:
-                return TELNET_ADMIN;
+            case ADMIN:
+            case ADMIN_CONSOLE:
+                return ADMIN;
             case SENIOR_ADMIN:
             case SENIOR_CONSOLE:
                 return SENIOR_ADMIN;
@@ -144,10 +143,10 @@ public enum Rank implements Displayable
     {
 
         PLAYER,
-        ADMIN,
-        ADMIN_CONSOLE;
+        STAFF,
+        STAFF_CONSOLE;
 
-        public boolean isAdmin()
+        public boolean isStaff()
         {
             return this != PLAYER;
         }

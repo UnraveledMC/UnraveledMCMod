@@ -40,7 +40,7 @@ public class Command_op extends FreedomCommand
         // if the player is not online
         if (player == null)
         {
-            if (plugin.al.isAdmin(sender) || senderIsConsole)
+            if (plugin.al.isStaffMember(sender) || senderIsConsole)
             {
                 player = DepreciationAggregator.getOfflinePlayer(server, args[0]);
             }
@@ -51,7 +51,7 @@ public class Command_op extends FreedomCommand
                 return true;
             }
         }
-        if (!plugin.al.isAdmin(sender) && plugin.da.isAdminDeopped(player.getName()))
+        if (!plugin.al.isStaffMember(sender) && plugin.da.isAdminDeopped(player.getName()))
         {
             msg("You can not op that player because that player has been deopped by an administrator.", ChatColor.RED);
             return true;

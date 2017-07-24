@@ -83,7 +83,7 @@ public class LibsDisguisesBridge extends FreedomService
             {
                 if (DisguiseAPI.isDisguised(player))
                 {
-                    if (!admins && plugin.al.isAdmin(player))
+                    if (!admins && plugin.al.isStaffMember(player))
                     {
                         continue;
                     }

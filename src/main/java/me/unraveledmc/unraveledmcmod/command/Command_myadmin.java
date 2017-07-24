@@ -1,7 +1,7 @@
 package me.unraveledmc.unraveledmcmod.command;
 
 import java.util.Arrays;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.rank.Rank;
 import me.unraveledmc.unraveledmcmod.util.FUtil;
 import net.pravian.aero.util.Ips;
@@ -12,7 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
-@CommandParameters(description = "Manage my admin entry", usage = "/<command> [-o <admin>] <clearips | clearip <ip> | setlogin <message> | clearlogin | setshoutcolor | settag | cleartag>")
+@CommandParameters(description = "Manage your staff member entry", usage = "/<command> [-o <staff member>] <clearips | clearip <ip> | setlogin <message> | clearlogin | setshoutcolor | settag | cleartag>")
 public class Command_myadmin extends FreedomCommand
 {
 
@@ -20,7 +20,7 @@ public class Command_myadmin extends FreedomCommand
     protected boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         checkPlayer();
-        checkRank(Rank.SUPER_ADMIN);
+        checkRank(Rank.MOD);
 
         if (args.length < 1)
         {
@@ -28,7 +28,7 @@ public class Command_myadmin extends FreedomCommand
         }
 
         Player init = null;
-        Admin target = getAdmin(playerSender);
+        StaffMember target = getStaffMember(playerSender);
         Player targetPlayer = playerSender;
         String targetIp = Ips.getIp(targetPlayer);
 
@@ -43,10 +43,10 @@ public class Command_myadmin extends FreedomCommand
                 msg(FreedomCommand.PLAYER_NOT_FOUND);
                 return true;
             }
-            target = getAdmin(targetPlayer);
+            target = getStaffMember(targetPlayer);
             if (target == null)
             {
-                msg("That player is not an admin", ChatColor.RED);
+                msg("That player is not a staff member", ChatColor.RED);
                 return true;
             }
 
@@ -69,11 +69,11 @@ public class Command_myadmin extends FreedomCommand
 
                 if (init == null)
                 {
-                    FUtil.adminAction(sender.getName(), "Clearing my supered IPs", true);
+                    FUtil.adminAction(sender.getName(), "Clearing my IPs", true);
                 }
                 else
                 {
-                    FUtil.adminAction(sender.getName(), "Clearing " + target.getName() + "' supered IPs", true);
+                    FUtil.adminAction(sender.getName(), "Clearing " + target.getName() + "' IPs", true);
                 }
 
                 int counter = target.getIps().size() - 1;
@@ -115,12 +115,12 @@ public class Command_myadmin extends FreedomCommand
                     }
                     else
                     {
-                        msg("You cannot remove that admin's current IP.");
+                        msg("You cannot remove that staff member's current IP.");
                     }
                     return true;
                 }
 
-                FUtil.adminAction(sender.getName(), "Removing a supered IP" + (init == null ? "" : " from " + targetPlayer.getName() + "'s IPs"), true);
+                FUtil.adminAction(sender.getName(), "Removing an IP" + (init == null ? "" : " from " + targetPlayer.getName() + "'s IPs"), true);
 
                 target.removeIp(args[1]);
                 plugin.al.save();

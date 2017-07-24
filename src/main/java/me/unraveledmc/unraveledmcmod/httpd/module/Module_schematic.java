@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 import me.unraveledmc.unraveledmcmod.UnraveledMCMod;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
 import me.unraveledmc.unraveledmcmod.httpd.HTMLGenerationTools;
 import me.unraveledmc.unraveledmcmod.httpd.HTTPDPageBuilder;
@@ -237,7 +237,7 @@ public class Module_schematic extends HTTPDModule
 
     private boolean isAuthorized(String remoteAddress)
     {
-        Admin entry = plugin.al.getEntryByIp(remoteAddress);
+        StaffMember entry = plugin.al.getEntryByIp(remoteAddress);
         return entry != null && entry.isActive();
     }
 

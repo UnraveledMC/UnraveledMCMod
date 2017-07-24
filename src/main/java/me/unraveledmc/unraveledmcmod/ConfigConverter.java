@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
-import me.unraveledmc.unraveledmcmod.admin.AdminList;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
+import me.unraveledmc.unraveledmcmod.staff.StaffList;
 import me.unraveledmc.unraveledmcmod.banning.PermbanList;
 import me.unraveledmc.unraveledmcmod.rank.Rank;
 import net.pravian.aero.component.PluginComponent;
@@ -81,7 +81,7 @@ public class ConfigConverter extends PluginComponent<UnraveledMCMod>
             return;
         }
 
-        List<Admin> conversions = Lists.newArrayList();
+        List<StaffMember> conversions = Lists.newArrayList();
         for (String uuid : admins.getKeys(false))
         {
             ConfigurationSection asec = admins.getConfigurationSection(uuid);
@@ -99,17 +99,17 @@ public class ConfigConverter extends PluginComponent<UnraveledMCMod>
             }
             else if (asec.getBoolean("is_telnet_admin"))
             {
-                rank = Rank.TELNET_ADMIN;
+                rank = Rank.ADMIN;
             }
             else
             {
-                rank = Rank.SUPER_ADMIN;
+                rank = Rank.MOD;
             }
             List<String> ips = asec.getStringList("ips");
             String loginMessage = asec.getString("custom_login_message");
             boolean active = asec.getBoolean("is_activated");
 
-            Admin admin = new Admin(username);
+            StaffMember admin = new StaffMember(username);
             admin.setName(username);
             admin.setRank(rank);
             admin.addIps(ips);
@@ -119,8 +119,8 @@ public class ConfigConverter extends PluginComponent<UnraveledMCMod>
             conversions.add(admin);
         }
 
-        YamlConfig newYaml = new YamlConfig(plugin, AdminList.CONFIG_FILENAME);
-        for (Admin admin : conversions)
+        YamlConfig newYaml = new YamlConfig(plugin, StaffList.CONFIG_FILENAME);
+        for (StaffMember admin : conversions)
         {
             admin.saveTo(newYaml.createSection(admin.getName().toLowerCase()));
         }

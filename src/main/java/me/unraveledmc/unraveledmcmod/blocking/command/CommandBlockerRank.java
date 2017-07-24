@@ -1,7 +1,7 @@
 package me.unraveledmc.unraveledmcmod.blocking.command;
 
 import me.unraveledmc.unraveledmcmod.UnraveledMCMod;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.rank.Rank;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -11,9 +11,9 @@ public enum CommandBlockerRank
 
     ANYONE("a"),
     OP("o"),
-    SUPER("s"),
-    TELNET("t"),
-    SENIOR("c"),
+    MOD("m"),
+    ADMIN("a"),
+    SENIOR("s"),
     NOBODY("n");
     //
     private final String token;
@@ -37,17 +37,17 @@ public enum CommandBlockerRank
     {
         if (!(sender instanceof Player))
         {
-            return TELNET;
+            return ADMIN;
         }
 
-        Admin admin = UnraveledMCMod.plugin().al.getAdmin(sender);
+        StaffMember admin = UnraveledMCMod.plugin().al.getStaffMember(sender);
         if (admin != null)
         {
             if (admin.getRank() == Rank.SENIOR_ADMIN)
             {
                 return SENIOR;
             }
-            return SUPER;
+            return ADMIN;
         }
 
         if (sender.isOp())

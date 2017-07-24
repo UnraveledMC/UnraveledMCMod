@@ -99,7 +99,7 @@ public class ProtectArea extends FreedomService
         }
 
         final Player player = event.getPlayer();
-        if (plugin.al.isAdmin(player))
+        if (plugin.al.isStaffMember(player))
         {
             return;
         }
@@ -121,7 +121,7 @@ public class ProtectArea extends FreedomService
         }
 
         final Player player = event.getPlayer();
-        if (plugin.al.isAdmin(player))
+        if (plugin.al.isStaffMember(player))
         {
             return;
         }

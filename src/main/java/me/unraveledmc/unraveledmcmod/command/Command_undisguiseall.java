@@ -6,7 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Undisguise all players on the server", usage = "/<command> [-a]", aliases = "uall")
 public class Command_undisguiseall extends FreedomCommand
 {
@@ -14,13 +14,13 @@ public class Command_undisguiseall extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        Boolean admins = false;
+        Boolean includeStaff = false;
         if (args.length > 0 && args[0].equals("-a"))
         {
-            admins = true;
+            includeStaff = true;
         }
-        FUtil.adminAction(sender.getName(), "Undisguising all "  + (admins ? "players" : "non-admins"), true);
-        plugin.ldb.undisguiseAll(admins);
+        FUtil.adminAction(sender.getName(), "Undisguising all "  + (includeStaff ? "players" : "non-staff"), true);
+        plugin.ldb.undisguiseAll(includeStaff);
         return true;
     }
 }

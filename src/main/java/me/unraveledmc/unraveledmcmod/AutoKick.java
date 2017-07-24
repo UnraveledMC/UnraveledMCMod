@@ -66,7 +66,7 @@ public class AutoKick extends FreedomService
             final long lastActivity = plugin.esb.getLastActivity(player.getName());
             if (lastActivity > 0 && lastActivity + autoKickTicks < System.currentTimeMillis())
             {
-                if (!plugin.al.isAdmin(player))
+                if (!plugin.al.isStaffMember(player))
                 {
                     player.kickPlayer("Automatically kicked by server for inactivity.");
                 }

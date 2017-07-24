@@ -11,7 +11,6 @@ import me.unraveledmc.unraveledmcmod.util.FSync;
 import me.unraveledmc.unraveledmcmod.util.FUtil;
 import me.unraveledmc.unraveledmcmod.shop.ShopData;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -135,7 +134,7 @@ public class LoginProcess extends FreedomService
             {
                 for (Player onlinePlayer : server.getOnlinePlayers())
                 {
-                    if (!plugin.al.isAdmin(onlinePlayer))
+                    if (!plugin.al.isStaffMember(onlinePlayer))
                     {
                         onlinePlayer.kickPlayer("You have been kicked to free up room for an admin.");
                         count--;
@@ -165,10 +164,10 @@ public class LoginProcess extends FreedomService
             return;
         }
 
-        // Admin-only mode
-        if (ConfigEntry.ADMIN_ONLY_MODE.getBoolean())
+        // StaffMember-only mode
+        if (ConfigEntry.STAFF_ONLY_MODE.getBoolean())
         {
-            event.disallow(PlayerLoginEvent.Result.KICK_OTHER, "Server is temporarily open to admins only.");
+            event.disallow(PlayerLoginEvent.Result.KICK_OTHER, "Server is temporarily open to staff members only.");
             return;
         }
 
@@ -197,14 +196,14 @@ public class LoginProcess extends FreedomService
         final ShopData sd = plugin.sh.getData(player);
         
         // Op player on join if the player is not opped
-        if (ConfigEntry.OP_ON_JOIN.getBoolean() && !player.isOp() && !plugin.al.isAdminImpostor(player))
+        if (ConfigEntry.OP_ON_JOIN.getBoolean() && !player.isOp() && !plugin.al.isStaffImposter(player))
         {
             player.setOp(true);
             player.sendMessage(FreedomCommand.YOU_ARE_OP);
         }
         
         // Has shop custom login message
-        if (!plugin.al.isAdmin(player) && !plugin.al.isAdminImpostor(player) && sd.isCustomLoginMessage() && !sd.getLoginMessage().equalsIgnoreCase("none"))
+        if (!plugin.al.isStaffMember(player) && !plugin.al.isStaffImposter(player) && sd.isCustomLoginMessage() && !sd.getLoginMessage().equalsIgnoreCase("none"))
         {
             FUtil.bcastMsg(plugin.sl.createLoginMessage(player, sd.getLoginMessage()));
         }
@@ -214,9 +213,9 @@ public class LoginProcess extends FreedomService
             @Override
             public void run()
             {
-                if (ConfigEntry.ADMIN_ONLY_MODE.getBoolean())
+                if (ConfigEntry.STAFF_ONLY_MODE.getBoolean())
                 {
-                    player.sendMessage(ChatColor.RED + "Server is currently closed to non-admins.");
+                    player.sendMessage(ChatColor.RED + "Server is currently closed to non-staff.");
                 }
 
                 if (lockdownEnabled)
@@ -224,10 +223,10 @@ public class LoginProcess extends FreedomService
                     FUtil.playerMsg(player, "Warning: Server is currenty in lockdown-mode, new players will not be able to join!", ChatColor.RED);
                 }
                 
-                if (plugin.al.isAdmin(player) && !ConfigEntry.ADMIN_LOGIN_MESSAGE.getList().isEmpty())
+                if (plugin.al.isStaffMember(player) && !ConfigEntry.STAFF_LOGIN_MESSAGE.getList().isEmpty())
                 {
                     List<String> messages = new ArrayList();
-                    for (Object msg : ConfigEntry.ADMIN_LOGIN_MESSAGE.getList())
+                    for (Object msg : ConfigEntry.STAFF_LOGIN_MESSAGE.getList())
                     {
                         messages.add(FUtil.colorize((String) msg));
                     }

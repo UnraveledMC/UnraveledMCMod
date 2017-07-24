@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "POW!!! Right in the kisser! One of these days Alice, straight to the Moon!",
         usage = "/<command> <target> [<<power> | stop>]")
 public class Command_orbit extends FreedomCommand

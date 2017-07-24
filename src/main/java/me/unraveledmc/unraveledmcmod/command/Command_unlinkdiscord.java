@@ -1,13 +1,13 @@
 package me.unraveledmc.unraveledmcmod.command;
 
 import me.unraveledmc.unraveledmcmod.rank.Rank;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.ONLY_IN_GAME)
+@CommandPermissions(level = Rank.MOD, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Unlink your discord account to your minecraft account", usage = "/<command>")
 public class Command_unlinkdiscord extends FreedomCommand
 {
@@ -21,7 +21,7 @@ public class Command_unlinkdiscord extends FreedomCommand
             return true;
         }
         
-        Admin admin = plugin.al.getAdmin(playerSender);
+        StaffMember admin = plugin.al.getStaffMember(playerSender);
         if (admin.getDiscordID() == null)
         {
             msg("Your minecraft account is not linked to a discord account", ChatColor.RED);

@@ -1,6 +1,6 @@
 package me.unraveledmc.unraveledmcmod.command;
 
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.banning.Ban;
 import me.unraveledmc.unraveledmcmod.rank.Rank;
 import me.unraveledmc.unraveledmcmod.util.FUtil;
@@ -13,7 +13,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 @CommandPermissions(level = Rank.SENIOR_ADMIN, source = SourceType.BOTH, blockHostConsole = true)
-@CommandParameters(description = "For the bad admins", usage = "/<command> <playername>")
+@CommandParameters(description = "For the bad staff members", usage = "/<command> <playername>")
 public class Command_doom extends FreedomCommand
 {
 
@@ -38,12 +38,12 @@ public class Command_doom extends FreedomCommand
 
         final String ip = player.getAddress().getAddress().getHostAddress().trim();
 
-        // Remove from superadmin
-        Admin admin = getAdmin(player);
-        if (admin != null)
+        // Remove from the staff list
+        StaffMember staffMember = getStaffMember(player);
+        if (staffMember != null)
         {
-            FUtil.adminAction(sender.getName(), "Removing " + player.getName() + " from the admin list", true);
-            admin.setActive(false);
+            FUtil.adminAction(sender.getName(), "Removing " + player.getName() + " from the staff list", true);
+            staffMember.setActive(false);
             plugin.al.save();
             plugin.al.updateTables();
         }

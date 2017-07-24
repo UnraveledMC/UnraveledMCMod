@@ -1,0 +1,21 @@
+#
+# UnraveledMCMod Staff List
+#
+
+awesomepinch:
+  username: AwesomePinch
+  active: true
+  rank: SENIOR_ADMIN
+  ips:
+  - 8.8.4.4
+  last_login: Wed, 2 Apr 2016 16:08:39 +0000
+  login_message: 'the &9Owner&b of &7Unraveled&8MC&b!'
+  
+creeperseth:
+  username: CreeperSeth
+  active: true
+  rank: SENIOR_ADMIN
+  ips:
+  - 127.0.0.1
+  last_login: Tue, 11 Sep 2001 12:46:00 +0000
+  login_message: 'the &5Lead Developer&b of &7Unraveled&8MC&b!'

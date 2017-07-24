@@ -187,12 +187,12 @@ public class EventBlocker extends FreedomService
             if (event.getDamager() instanceof Player)
             {
                 Player player = (Player) event.getDamager();
-                if (player.getGameMode() == GameMode.CREATIVE && !plugin.al.isAdmin(player))
+                if (player.getGameMode() == GameMode.CREATIVE && !plugin.al.isStaffMember(player))
                 {
                     FUtil.playerMsg(player, "Creative PvP is not allowed!", ChatColor.RED);
                     event.setCancelled(true);
                 }
-                if (plugin.esb.getEssentialsUser(player.getName()).isGodModeEnabled() && !plugin.al.isAdmin(player))
+                if (plugin.esb.getEssentialsUser(player.getName()).isGodModeEnabled() && !plugin.al.isStaffMember(player))
                 {
                     FUtil.playerMsg(player, "God mode PvP is not allowed!", ChatColor.RED);
                     event.setCancelled(true);
@@ -205,12 +205,12 @@ public class EventBlocker extends FreedomService
                 if (arrow.getShooter() instanceof Player)
                 {
                     Player player = (Player) arrow.getShooter();
-                    if (player.getGameMode() == GameMode.CREATIVE && !plugin.al.isAdmin(player))
+                    if (player.getGameMode() == GameMode.CREATIVE && !plugin.al.isStaffMember(player))
                     {
                         FUtil.playerMsg(player, "Creative PvP is not allowed!", ChatColor.RED);
                         event.setCancelled(true);
                     }
-                    if (plugin.esb.getEssentialsUser(player.getName()).isGodModeEnabled() && !plugin.al.isAdmin(player))
+                    if (plugin.esb.getEssentialsUser(player.getName()).isGodModeEnabled() && !plugin.al.isStaffMember(player))
                     {
                         FUtil.playerMsg(player, "God mode PvP is not allowed!", ChatColor.RED);
                         event.setCancelled(true);

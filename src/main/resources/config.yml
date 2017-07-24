@@ -16,8 +16,9 @@ server:
     - AwesomePinch
     - Tyle
 
-  # All players who show up as co-owner
-  coowners: []
+  # All players whos how up as founder
+  founders:
+    - aggelosQQ
 
   # All players who show up as executive
   execs:
@@ -26,7 +27,6 @@ server:
     - Hankie
     - TheHour
     - Mark_the_Dragon
-    - Taicius
     
   # All players who show up as donators
   donors: []
@@ -89,27 +89,30 @@ shop:
   # How much should the minigun cost
   minigun_price: 300
   
-# Admins
-admins:
-  # Message to display to admins when they login (supports color codes and is multiple line)
-  admin_login_message:
-    - '&2Welcome back admin!'
+# Staff
+staff:
+  # Message to display to staff members when they login (supports color codes and is multiple line)
+  staff_login_message:
+    - '&2Welcome back staff member!'
     - '&cBe sure to keep an eye on the ops!'
+    
+  # URL to the staff application template
+  staff_application_url: 'https://f.unraveledmc.com'
   
-  # Admin list
-  adminlist:
-    # The amount of hours after which admins may be removed from the admin list
+  # Staff list
+  stafflist:
+    # The amount of hours after which staff members may be removed from the staff list
     clean_threshold_hours: 167
     # Give the default CONSOLE senior admin privileges.
     # Handy in development environments.
     console_is_senior: true
 
-  # Admin-Only Mode
-  admin_only_mode: false
+  # Staff-Only Mode
+  staff_only_mode: false
   
-  # IPs that can not be supered
-  noadmin_ips:
-    - 167.114.97.16
+  # IPs that can not be added to staff list entries
+  nostaff_ips:
+    - 123.123.123.123
 
 # ForceIP configuration
 forceip:
@@ -144,9 +147,9 @@ allow:
 # * The first section is a letter which indicates which rank may use this command
 #   Valid ranks:
 #   n - Nobody (Completely disabled)
-#   c - Senior Admins (Console)
-#   t - Telnet Admins (Console)
-#   s - Super Admins (Any in-game admin)
+#   s - Senior Admins (Console)
+#   a - Admins (Console)
+#   m - Mods (Any in-game staff)
 #   o - Ops (Non-Ops won't be able to use it)
 #
 # * The second section is a letter which indicates what to do when a player executes that command.
@@ -162,12 +165,12 @@ allow:
 #   by using a single underscore.
 #
 # Examples:
-#   - 'n:b:/mail sendall:&4You can't send mails to everyone!'
+#   - 'n:b:/mail sendall:&4You can't send mail to everyone!'
 #   - 'n:b:/ban:_'
 #
 blocked_commands:
     # Disabled commands
-  - 'n:b:/socialspy:&cEw why the fuck are you using socialspy? Commandspy shows ALL the commands'
+  - 'n:b:/socialspy:_'
   - 'n:b:/time:Server-side time changing is disabled. Please use /ptime to set your own personal time.'
   - 'n:b:/gamemode:Use /creative and /survival to set your gamemode.'
   - 'n:b:/ban-ip:_'
@@ -206,65 +209,64 @@ blocked_commands:
   - 'n:b:/setworldspawn:_'
   - 'n:b:/trigger:_'
   
-  # Superadmin commands
-  - 's:b:/kick:_'
-  - 's:b:/tool:_'
-  - 's:b:/replaceitem:_'
-  - 's:b://generate:_'
-  - 's:b://:_'
-  - 's:b:/superpickaxe:_'
-  - 's:b:/size:_'
-  - 's:b://mask:_'
-  - 's:b:/mat:_'
-  - 's:b://butcher:_'
-  - 's:b:/scoreboard:_'
-  - 's:b:/setspawn:_'
-  - 's:b://snow:_'
-  - 's:b:/forestgen:_'
-  - 's:b:/setidletimeout:_'
-  - 's:b:/eco reset:_'
-  - 's:b:/mask:_'
-  - 's:b:/gmask:_'
-  - 's:b:/lrbuild:_'
-  - 's:b:/defaultgamemode:_'
-  - 's:b:/reload:_'
-  - 's:b:/worldborder:_'
-  - 's:b:/weather:_'
-  - 's:b:/setblock:_'
-  - 's:b:/green:_'
-  - 's:b:/gamerule:_'
-  - 's:b:/togglejail:_'
-  - 's:b:/fill:_'
-  - 's:b:/flood:_'
-  - 's:b:/coreprotect:_'
-  - 's:b:/core:_'
-  - 's:b:/co:_'
-  - 's:b:/supertrails:_'
-  - 's:b:/protocol:_'
-  - 's:b:/tablist:_'
-  - 's:b:/aba:_'
-  - 's:b:/ab:_'
-  - 's:b:/timer:_'  
-  - 's:b:/sblist:&eOnly administrators may use this.'
-  - 's:b:/adminvote:&cOnly administrators can do that, please use /vote'
-  - 's:b:/av:&cOnly administrators can do that, please use /vote'
-  - 's:b:/betterchairsreload:_'
-  - 's:b:/lb reload:&eOnly administrators may reload the plugin.'
-  - 's:b:/enderchest:_'
-  - 's:b:/tphere:&cOnly administrators can use that! Please use /tpahere instead!'
-  - 's:b:/tpo:&cOnly administrators can use that! Please use /tp(a) instead!'
-  - 's:b:/tpohere:&cOnly administrators can use that! Please use /tpahere instead!'
-  - 's:b://count:&cThis command has been disabled due to abuse.'
-  - 's:b:/pardon:_'
-  - 's:b:/pardon-ip:_' 
-  - 's:b:/locate:_'
-  - 's:b:/playsound:_'
-  - 's:b:/stopsound:_'
-  - 's:b:/world:&cJust stay in the flatlands.'
-  - 's:b:/summon:&cThe summon command is useless here.'
-  - 's:b:/particle:_'
-  - 's:b:/stop:_'
-  - 's:b:/restart:_'
+  # Staff commands
+  - 'm:b:/kick:_'
+  - 'm:b:/tool:_'
+  - 'm:b:/replaceitem:_'
+  - 'm:b://generate:_'
+  - 'm:b://:_'
+  - 'm:b:/superpickaxe:_'
+  - 'm:b:/size:_'
+  - 'm:b://mask:_'
+  - 'm:b:/mat:_'
+  - 'm:b://butcher:_'
+  - 'm:b:/scoreboard:_'
+  - 'm:b:/setspawn:_'
+  - 'm:b://snow:_'
+  - 'm:b:/forestgen:_'
+  - 'm:b:/setidletimeout:_'
+  - 'm:b:/eco reset:_'
+  - 'm:b:/mask:_'
+  - 'm:b:/gmask:_'
+  - 'm:b:/lrbuild:_'
+  - 'm:b:/defaultgamemode:_'
+  - 'm:b:/reload:_'
+  - 'm:b:/worldborder:_'
+  - 'm:b:/weather:_'
+  - 'm:b:/setblock:_'
+  - 'm:b:/green:_'
+  - 'm:b:/gamerule:_'
+  - 'm:b:/togglejail:_'
+  - 'm:b:/fill:_'
+  - 'm:b:/flood:_'
+  - 'm:b:/coreprotect:_'
+  - 'm:b:/core:_'
+  - 'm:b:/co:_'
+  - 'm:b:/supertrails:_'
+  - 'm:b:/protocol:_'
+  - 'm:b:/tablist:_'
+  - 'm:b:/aba:_'
+  - 'm:b:/ab:_'
+  - 'm:b:/timer:_'  
+  - 'm:b:/sblist:_'
+  - 'm:b:/adminvote:&cOnly staff members can do that, please use /vote'
+  - 'm:b:/av:&cOnly staff members can do that, please use /vote'
+  - 'm:b:/betterchairsreload:_'
+  - 'm:b:/lb reload:_'
+  - 'm:b:/enderchest:_'
+  - 'm:b:/tphere:&cOnly staff members can use that! Please use /tpahere instead!'
+  - 'm:b:/tpo:&cOnly staff members can use that! Please use /tp(a) instead!'
+  - 'm:b:/tpohere:&cOnly staff members can use that! Please use /tpahere instead!'
+  - 'm:b://count:_'
+  - 'm:b:/pardon:_'
+  - 'm:b:/pardon-ip:_' 
+  - 'm:b:/locate:_'
+  - 'm:b:/playsound:_'
+  - 'm:b:/stopsound:_'
+  - 'm:b:/summon:_'
+  - 'm:b:/particle:_'
+  - 'm:b:/stop:_'
+  - 'm:b:/restart:_'
 
 # Automatically wipe dropped objects
 auto_wipe: true
@@ -311,7 +313,7 @@ flatlands:
   # Flatlands generation parameters - Uses CleanroomGenerator syntax - http://dev.bukkit.org/server-mods/cleanroomgenerator/
   generate_params: 16,stone,32,dirt,1,grass
 
-# Protected Areas - Protect areas so that only superadmins can directly modify blocks in those areas. WorldEdit and other such plugins might bypass this.
+# Protected Areas - Protect areas so that only staff members can directly modify blocks in those areas. WorldEdit and other such plugins might bypass this.
 protectarea:
   enabled: true
   auto_protect_spawnpoints: true

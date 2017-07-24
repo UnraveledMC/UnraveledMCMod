@@ -29,7 +29,7 @@ public class Fuckoff extends FreedomService
     public void onPlayerMove(PlayerMoveEvent event)
     {
         final Player fuckoffPlayer = event.getPlayer();
-        if (plugin.al.isAdmin(fuckoffPlayer))
+        if (plugin.al.isStaffMember(fuckoffPlayer))
         {
             return;
         }

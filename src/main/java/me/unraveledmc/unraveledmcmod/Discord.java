@@ -2,7 +2,7 @@ package me.unraveledmc.unraveledmcmod;
 
 import me.unraveledmc.unraveledmcmod.discord.MessageListener;
 import me.unraveledmc.unraveledmcmod.util.FLog;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
@@ -14,7 +14,7 @@ import javax.security.auth.login.LoginException;
 
 public class Discord extends FreedomService
 {
-    public static HashMap<String, Admin> LINK_CODES = new HashMap<>();
+    public static HashMap<String, StaffMember> LINK_CODES = new HashMap<>();
     public static List<String> VERIFY_CODES = new ArrayList();
     public static JDA bot = null;
     public static Boolean enabled = false;
@@ -73,7 +73,7 @@ public class Discord extends FreedomService
         channel.sendMessage(message);
     }
     
-    public static String getCodeForAdmin(Admin admin)
+    public static String getCodeForAdmin(StaffMember admin)
     {
         for (String code: LINK_CODES.keySet())
         {

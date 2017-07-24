@@ -15,7 +15,7 @@ public class Command_opme extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!plugin.al.isAdmin(sender) && plugin.da.isAdminDeopped(sender.getName()))
+        if (!plugin.al.isStaffMember(sender) && plugin.da.isAdminDeopped(sender.getName()))
         {
             msg("You can not op yourself because you have been deopped by an administrator.", ChatColor.RED);
             return true;

@@ -4,6 +4,7 @@ import me.unraveledmc.unraveledmcmod.FreedomService;
 import me.unraveledmc.unraveledmcmod.UnraveledMCMod;
 import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
 import me.unraveledmc.unraveledmcmod.player.FPlayer;
+import me.unraveledmc.unraveledmcmod.util.FUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -15,27 +16,26 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
-import static me.unraveledmc.unraveledmcmod.util.FUtil.playerMsg;
 
 public class WorldManager extends FreedomService
 {
 
     public Flatlands flatlands;
-    public AdminWorld adminworld;
+    public StaffWorld staffworld;
 
     public WorldManager(UnraveledMCMod plugin)
     {
         super(plugin);
 
         this.flatlands = new Flatlands();
-        this.adminworld = new AdminWorld();
+        this.staffworld = new StaffWorld();
     }
 
     @Override
     protected void onStart()
     {
         flatlands.getWorld();
-        adminworld.getWorld();
+        staffworld.getWorld();
 
         // Disable weather
         if (ConfigEntry.DISABLE_WEATHER.getBoolean())
@@ -54,7 +54,7 @@ public class WorldManager extends FreedomService
     protected void onStop()
     {
         flatlands.getWorld().save();
-        adminworld.getWorld().save();
+        staffworld.getWorld().save();
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -63,12 +63,12 @@ public class WorldManager extends FreedomService
         final Player player = event.getPlayer();
         final FPlayer fPlayer = plugin.pl.getPlayer(player);
 
-        if (!plugin.al.isAdmin(player) && fPlayer.getFreezeData().isFrozen())
+        if (!plugin.al.isStaffMember(player) && fPlayer.getFreezeData().isFrozen())
         {
             return; // Don't process adminworld validation
         }
 
-        adminworld.validateMovement(event);
+        staffworld.validateMovement(event);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -89,7 +89,7 @@ public class WorldManager extends FreedomService
         {
         }
 
-        adminworld.validateMovement(event);
+        staffworld.validateMovement(event);
     }
 
     @EventHandler(priority = EventPriority.HIGH)
@@ -97,7 +97,7 @@ public class WorldManager extends FreedomService
     {
         try
         {
-            if (event.getWorld().equals(adminworld.getWorld()) && adminworld.getWeatherMode() != WorldWeather.OFF)
+            if (event.getWorld().equals(staffworld.getWorld()) && staffworld.getWeatherMode() != WorldWeather.OFF)
             {
                 return;
             }
@@ -117,7 +117,7 @@ public class WorldManager extends FreedomService
     {
         try
         {
-            if (event.getWorld().equals(adminworld.getWorld()) && adminworld.getWeatherMode() != WorldWeather.OFF)
+            if (event.getWorld().equals(staffworld.getWorld()) && staffworld.getWeatherMode() != WorldWeather.OFF)
             {
                 return;
             }
@@ -141,7 +141,7 @@ public class WorldManager extends FreedomService
 
         if (player.getWorld().getName().equalsIgnoreCase(targetWorld))
         {
-            playerMsg(player, "Going to main world.", ChatColor.GRAY);
+            FUtil.playerMsg(player, "Going to main world.", ChatColor.GRAY);
             player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
             return;
         }
@@ -150,13 +150,13 @@ public class WorldManager extends FreedomService
         {
             if (world.getName().equalsIgnoreCase(targetWorld))
             {
-                playerMsg(player, "Going to world: " + targetWorld, ChatColor.GRAY);
+                FUtil.playerMsg(player, "Going to world: " + targetWorld, ChatColor.GRAY);
                 player.teleport(world.getSpawnLocation());
                 return;
             }
         }
 
-        playerMsg(player, "World " + targetWorld + " not found.", ChatColor.GRAY);
+        FUtil.playerMsg(player, "World " + targetWorld + " not found.", ChatColor.GRAY);
     }
 
 }

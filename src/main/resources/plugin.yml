@@ -1,6 +1,7 @@
 name: UnraveledMCMod
 main: me.unraveledmc.unraveledmcmod.UnraveledMCMod
-version: 2.1
+# This version is the base version. Ex 1.0 2.0 3.0 etc
+version: 2.0
 description: Plugin for the UnraveledMC server.
 depend: [Aero, WorldEdit]
 softdepend: [BukkitTelnet, UMC-Essentials, LibsDisguises, DiscordSRV]

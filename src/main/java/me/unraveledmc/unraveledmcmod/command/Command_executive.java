@@ -3,7 +3,7 @@ package me.unraveledmc.unraveledmcmod.command;
 import java.util.ArrayList;
 import java.util.List;
 import me.unraveledmc.unraveledmcmod.ChatManager;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.rank.Rank;
 import me.unraveledmc.unraveledmcmod.util.FUtil;
 import me.unraveledmc.unraveledmcmod.banning.Ban;
@@ -20,8 +20,8 @@ import org.bukkit.Sound;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
-@CommandParameters(description = "Executive things...", usage = "/<command> [hell: <username> | accolor: <colorcode | random | nyan>]", aliases = "exec")
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
+@CommandParameters(description = "Executive things...", usage = "/<command> [hell: <username> | sccolor: <colorcode | random | nyan>]", aliases = "exec")
 public class Command_executive extends FreedomCommand
 {
 
@@ -30,7 +30,7 @@ public class Command_executive extends FreedomCommand
     {
         if (!FUtil.isExecutive(sender.getName()))
         {
-            msg("You aren't an executive admin, have a cookie instead!");
+            msg("You aren't an executive, have a cookie instead!");
             if (!senderIsConsole)
             {
                 final int firstEmpty = playerSender.getInventory().firstEmpty();
@@ -61,10 +61,10 @@ public class Command_executive extends FreedomCommand
                         FUtil.adminAction(sender.getName(), "Calling Satan to open the gates of hell for " + player.getName(), true);
                         FUtil.bcastMsg(player.getName() + " is going to have a bad time!", ChatColor.RED);
                         final String IP = player.getAddress().getAddress().getHostAddress().trim();
-                        if (plugin.al.isAdmin(player))
+                        if (plugin.al.isStaffMember(player))
                         {
-                            Admin admin = plugin.al.getAdmin(player);
-                            admin.setActive(false);
+                            StaffMember staffMember = plugin.al.getStaffMember(player);
+                            staffMember.setActive(false);
                             plugin.al.save();
                             plugin.al.updateTables();
                         }
@@ -114,14 +114,14 @@ public class Command_executive extends FreedomCommand
                         return false;
                     }    
                 }
-                case "accolor":
+                case "sccolor":
                 {
                     if (args.length == 2)
                     {
                         if (args[1].equals("random"))
                         {
                             ChatManager.acr = true;
-                            msg(ChatColor.GREEN + "Adminchat color is now " + FUtil.randomChatColor() + "random" + ChatColor.GREEN + "!");
+                            msg(ChatColor.GREEN + "Staffchat color is now " + FUtil.randomChatColor() + "random" + ChatColor.GREEN + "!");
                             return true;
                         }
                         else if (ChatManager.acr == true)
@@ -137,7 +137,7 @@ public class Command_executive extends FreedomCommand
                             {
                                 r = r + FUtil.randomChatColor() + c;
                             }
-                            msg(ChatColor.GREEN + "Adminchat color is now " + r + ChatColor.GREEN + "!");
+                            msg(ChatColor.GREEN + "Staffchat color is now " + r + ChatColor.GREEN + "!");
                             return true;
                         }
                         else if (ChatManager.acn == true)
@@ -174,7 +174,7 @@ public class Command_executive extends FreedomCommand
                         {
                             newColor = ChatColor.getByChar(colorChar);
                             ChatManager.acc = newColor;
-                            msg(ChatColor.GREEN + "Adminchat color is now " + newColor + newColor.name().toLowerCase().replace("_", " ") + ChatColor.GREEN + "!");
+                            msg(ChatColor.GREEN + "Staffchat color is now " + newColor + newColor.name().toLowerCase().replace("_", " ") + ChatColor.GREEN + "!");
                            return true;
                         }
                     }

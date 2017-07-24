@@ -42,7 +42,7 @@ public class PotionBlocker extends FreedomService
 
         Player thrower = (Player) source;
 
-        if (plugin.al.isAdmin(thrower))
+        if (plugin.al.isStaffMember(thrower))
         {
             return;
         }

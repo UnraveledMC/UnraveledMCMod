@@ -1,7 +1,7 @@
 package me.unraveledmc.unraveledmcmod.httpd.module;
 
 import me.unraveledmc.unraveledmcmod.UnraveledMCMod;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.httpd.NanoHTTPD;
 import me.unraveledmc.unraveledmcmod.util.FUtil;
 import org.bukkit.Bukkit;
@@ -24,8 +24,8 @@ public class Module_players extends HTTPDModule
         final JSONObject responseObject = new JSONObject();
 
         final JSONArray players = new JSONArray();
-        final JSONArray superadmins = new JSONArray();
-        final JSONArray telnetadmins = new JSONArray();
+        final JSONArray mods = new JSONArray();
+        final JSONArray admins = new JSONArray();
         final JSONArray senioradmins = new JSONArray();
         final JSONArray developers = new JSONArray();
 
@@ -35,18 +35,18 @@ public class Module_players extends HTTPDModule
             players.add(player.getName());
         }
 
-        // Admins
-        for (Admin admin : plugin.al.getAllAdmins().values())
+        // Staff
+        for (StaffMember staffMember : plugin.al.getAllStaff().values())
         {
-            final String username = admin.getName();
+            final String username = staffMember.getName();
 
-            switch (admin.getRank())
+            switch (staffMember.getRank())
             {
-                case SUPER_ADMIN:
-                    superadmins.add(username);
+                case MOD:
+                    mods.add(username);
                     break;
-                case TELNET_ADMIN:
-                    telnetadmins.add(username);
+                case ADMIN:
+                    admins.add(username);
                     break;
                 case SENIOR_ADMIN:
                     senioradmins.add(username);
@@ -58,8 +58,8 @@ public class Module_players extends HTTPDModule
         developers.addAll(FUtil.UMCDEVS);
 
         responseObject.put("players", players);
-        responseObject.put("superadmins", superadmins);
-        responseObject.put("telnetadmins", telnetadmins);
+        responseObject.put("mods", mods);
+        responseObject.put("admins", admins);
         responseObject.put("senioradmins", senioradmins);
         responseObject.put("developers", developers);
 

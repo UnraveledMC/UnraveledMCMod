@@ -39,7 +39,7 @@ public class Command_report extends FreedomCommand
             }
         }
 
-        if (plugin.al.isAdmin(player))
+        if (plugin.al.isStaffMember(player))
         {
             msg(ChatColor.RED + "You can not report an admin.");
             return true;

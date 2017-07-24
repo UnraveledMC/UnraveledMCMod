@@ -8,7 +8,7 @@ import me.totalfreedom.bukkittelnet.api.TelnetPreLoginEvent;
 import me.totalfreedom.bukkittelnet.api.TelnetRequestDataTagsEvent;
 import me.unraveledmc.unraveledmcmod.FreedomService;
 import me.unraveledmc.unraveledmcmod.UnraveledMCMod;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.rank.Rank;
 import me.unraveledmc.unraveledmcmod.util.FLog;
 import org.bukkit.Bukkit;
@@ -51,7 +51,7 @@ public class BukkitTelnetBridge extends FreedomService
             return;
         }
 
-        final Admin admin = plugin.al.getEntryByIpFuzzy(ip);
+        final StaffMember admin = plugin.al.getEntryByIpFuzzy(ip);
 
         if (admin == null || !admin.isActive() || !admin.getRank().hasConsoleVariant())
         {
@@ -85,14 +85,14 @@ public class BukkitTelnetBridge extends FreedomService
             boolean isTelnetAdmin = false;
             boolean isSeniorAdmin = false;
 
-            final Admin admin = plugin.al.getAdmin(player);
+            final StaffMember admin = plugin.al.getStaffMember(player);
             if (admin != null)
             {
                 boolean active = admin.isActive();
 
                 isAdmin = active;
                 isSeniorAdmin = active && admin.getRank() == Rank.SENIOR_ADMIN;
-                isTelnetAdmin = active && (isSeniorAdmin || admin.getRank() == Rank.TELNET_ADMIN);
+                isTelnetAdmin = active && (isSeniorAdmin || admin.getRank() == Rank.ADMIN);
             }
 
             playerTags.put("tfm.admin.isAdmin", isAdmin);

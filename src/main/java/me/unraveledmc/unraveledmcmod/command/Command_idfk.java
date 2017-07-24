@@ -16,7 +16,7 @@ public class Command_idfk extends FreedomCommand
             "ooga boga ooga boga ooga boga ooga boga", "jake u dog fukr", "nero is a nice black pussy",
             "robin has a perfect penis", "ABABABABABABABABABA ABAOBOABOBA", "agge is a fuckin egg",
             "explosive errors == explosive arrows", "sync; echo 3 > /proc/sys/vm/drop_caches", "yeet",
-            "si"};
+            "si", "bubble bass thicc :weary::sweat_drops: :ok_hand:"};
     
     private static final Random random = new Random();
 
@@ -55,12 +55,22 @@ public class Command_idfk extends FreedomCommand
                 playerSender.setVelocity(new Vector(0, 1000, 0));
                 msg("*insert shooting stars meme here*");
                 break;
-            case "fuck"
+            case "fuck":
                 playerSender.chat("wow robin is gay xdxdxd");
                 msg("i tried");
                 msg("and as in i tried as in robin tried to code this in");
                 msg("lol xd");
                 break;
+            case "roger":
+                if (args.length > 1 && args[1].equals("waters"))
+                {
+                    msg("roger eternum");
+                    break;
+                }
+                else
+                {
+                    return false;
+                }
             default:
                 return false;
         }

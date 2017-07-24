@@ -38,7 +38,7 @@ public class Command_qop extends FreedomCommand
             {
                 if (!player.isOp())
                 {
-                    if (!plugin.al.isAdmin(sender) && plugin.da.isAdminDeopped(player.getName()))
+                    if (!plugin.al.isStaffMember(sender) && plugin.da.isAdminDeopped(player.getName()))
                     {
                         msg("You can not op that player because that player has been deopped by an administrator.", ChatColor.RED);
                     }

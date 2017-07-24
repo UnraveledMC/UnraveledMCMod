@@ -12,13 +12,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
-@CommandParameters(description = "Sets yourself a prefix", usage = "/<command> <set <tag..> | off | clear <player> | clearall | list>")
+@CommandParameters(description = "Set yourself a prefix", usage = "/<command> <set <tag..> | off | clear <player> | clearall | list>")
 public class Command_tag extends FreedomCommand
 {
 
     public static final List<String> FORBIDDEN_WORDS = Arrays.asList(new String[]
     {
-        "admin", "owner", "moderator", "developer", "console", "helper", "staff"
+        "helper", "mod", "admin", "owner", "dev", "exec", "staff", "founder"
     });
 
     @Override
@@ -43,7 +43,7 @@ public class Command_tag extends FreedomCommand
             }
             else if ("clearall".equalsIgnoreCase(args[0]))
             {
-                if (!plugin.al.isAdmin(sender))
+                if (!plugin.al.isStaffMember(sender))
                 {
                     noPerms();
                     return true;
@@ -89,7 +89,7 @@ public class Command_tag extends FreedomCommand
         {
             if ("clear".equalsIgnoreCase(args[0]))
             {
-                if (!plugin.al.isAdmin(sender))
+                if (!plugin.al.isStaffMember(sender))
                 {
                     noPerms();
                     return true;
@@ -126,7 +126,7 @@ public class Command_tag extends FreedomCommand
                             "", ""
                         })) + ChatColor.RESET;
 
-                if (!plugin.al.isAdmin(sender))
+                if (!plugin.al.isStaffMember(sender))
                 {
                     final String rawTag = ChatColor.stripColor(outputTag).toLowerCase();
 

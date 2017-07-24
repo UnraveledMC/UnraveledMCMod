@@ -10,6 +10,7 @@ public enum Title implements Displayable
     TFDEV("a", "TotalFreedom Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     UMCDEV("an", "UnraveledMC Developer", ChatColor.DARK_PURPLE, "UMC-Dev"),
     EXEC("an", "Executive Admin", ChatColor.DARK_BLUE, "Executive"),
+    FOUNDER("the", "Founder", ChatColor.RED, "Founder"),
     OWNER("an", "Owner", ChatColor.BLUE, "Owner");
 
     @Getter

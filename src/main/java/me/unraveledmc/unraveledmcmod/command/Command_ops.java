@@ -42,7 +42,7 @@ public class Command_ops extends FreedomCommand
 
         if (args[0].equals("purge"))
         {
-            if (!plugin.al.isAdmin(sender))
+            if (!plugin.al.isStaffMember(sender))
             {
                 noPerms();
                 return true;

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
 import me.unraveledmc.unraveledmcmod.util.FLog;
 import org.apache.commons.lang3.StringUtils;
@@ -110,7 +110,7 @@ public class LogViewer extends FreedomService
         }.runTaskAsynchronously(plugin);
     }
 
-    public void deactivateSuperadmin(Admin superadmin)
+    public void deactivateSuperadmin(StaffMember superadmin)
     {
         for (String ip : superadmin.getIps())
         {

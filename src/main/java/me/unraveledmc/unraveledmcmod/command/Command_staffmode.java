@@ -7,9 +7,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.TELNET_ADMIN, source = SourceType.BOTH)
-@CommandParameters(description = "Close server to non-superadmins.", usage = "/<command> [on | off]")
-public class Command_adminmode extends FreedomCommand
+@CommandPermissions(level = Rank.ADMIN, source = SourceType.BOTH)
+@CommandParameters(description = "Close server to non-staff.", usage = "/<command> [on | off]")
+public class Command_staffmode extends FreedomCommand
 {
 
     @Override
@@ -22,19 +22,19 @@ public class Command_adminmode extends FreedomCommand
 
         if (args[0].equalsIgnoreCase("off"))
         {
-            ConfigEntry.ADMIN_ONLY_MODE.setBoolean(false);
+            ConfigEntry.STAFF_ONLY_MODE.setBoolean(false);
             FUtil.adminAction(sender.getName(), "Opening the server to all players.", true);
             return true;
         }
         else if (args[0].equalsIgnoreCase("on"))
         {
-            ConfigEntry.ADMIN_ONLY_MODE.setBoolean(true);
-            FUtil.adminAction(sender.getName(), "Closing the server to non-superadmins.", true);
+            ConfigEntry.STAFF_ONLY_MODE.setBoolean(true);
+            FUtil.adminAction(sender.getName(), "Closing the server to non-staff.", true);
             for (Player player : server.getOnlinePlayers())
             {
-                if (!isAdmin(player))
+                if (!isStaffMember(player))
                 {
-                    player.kickPlayer("Server is now closed to non-superadmins.");
+                    player.kickPlayer("Server is now closed to non-staff.");
                 }
             }
             return true;

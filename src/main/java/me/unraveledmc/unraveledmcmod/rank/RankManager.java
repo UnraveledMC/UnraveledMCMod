@@ -2,7 +2,7 @@ package me.unraveledmc.unraveledmcmod.rank;
 
 import me.unraveledmc.unraveledmcmod.FreedomService;
 import me.unraveledmc.unraveledmcmod.UnraveledMCMod;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
 import me.unraveledmc.unraveledmcmod.player.FPlayer;
 import me.unraveledmc.unraveledmcmod.shop.ShopData;
@@ -45,34 +45,31 @@ public class RankManager extends FreedomService
         final Player player = (Player) sender;
 
         // Display impostors
-        if (plugin.al.isAdminImpostor(player))
+        if (plugin.al.isStaffImposter(player))
         {
             return Rank.IMPOSTOR;
         }
 
         // TF Developers always show up
-        if (FUtil.TFDEVS.contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !plugin.al.isAdminImpostor(player))
+        if (FUtil.TFDEVS.contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
             return Title.TFDEV;
         }
         
         // UMC Developers always show up
-        if (FUtil.UMCDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !plugin.al.isAdminImpostor(player))
+        if (FUtil.UMCDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
             return Title.UMCDEV;
         }
         
         // Master builders show up if they are not admins
-        if (!plugin.al.isAdmin(player))
+        if (ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(player.getName()) && !plugin.al.isStaffMember(player))
         {
-            if (ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(player.getName()))
-            {
-                return Title.MASTER_BUILDER;
-            }
+            return Title.MASTER_BUILDER;
         }
         
         // If the player is a donator, display thar
-        if (ConfigEntry.SERVER_DONORS.getList().contains(player.getName()))
+        if (ConfigEntry.SERVER_DONORS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_EXECS.getList().contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()))
         {
             return Title.DONOR;
         }
@@ -80,19 +77,25 @@ public class RankManager extends FreedomService
         final Rank rank = getRank(player);
 
         // Non-admins don't have titles, display actual rank
-        if (!rank.isAdmin())
+        if (!rank.isStaff())
         {
             return rank;
         }
 
         // If the player's an owner, display that
-        if (ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !plugin.al.isAdminImpostor(player))
+        if (ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
+        {
+            return Title.OWNER;
+        }
+        
+        // If the player's the founder, display that
+        if (ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
             return Title.OWNER;
         }
         
         // If the player's an executive, display that
-        if (ConfigEntry.SERVER_EXECS.getList().contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !plugin.al.isAdminImpostor(player))
+        if (ConfigEntry.SERVER_EXECS.getList().contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
             return Title.EXEC;
         }
@@ -110,11 +113,11 @@ public class RankManager extends FreedomService
         // CONSOLE?
         if (sender.getName().equals("CONSOLE"))
         {
-            return ConfigEntry.ADMINLIST_CONSOLE_IS_SENIOR.getBoolean() ? Rank.SENIOR_CONSOLE : Rank.TELNET_CONSOLE;
+            return ConfigEntry.STAFFLIST_CONSOLE_IS_SENIOR.getBoolean() ? Rank.SENIOR_CONSOLE : Rank.ADMIN_CONSOLE;
         }
 
-        // Console admin, get by name
-        Admin admin = plugin.al.getEntryByName(sender.getName());
+        // Console staff member, get by name
+        StaffMember admin = plugin.al.getEntryByName(sender.getName());
 
         // Unknown console: RCON?
         if (admin == null)
@@ -134,12 +137,12 @@ public class RankManager extends FreedomService
 
     public Rank getRank(Player player)
     {
-        if (plugin.al.isAdminImpostor(player))
+        if (plugin.al.isStaffImposter(player))
         {
             return Rank.IMPOSTOR;
         }
 
-        final Admin entry = plugin.al.getAdmin(player);
+        final StaffMember entry = plugin.al.getStaffMember(player);
         if (entry != null)
         {
             return entry.getRank();
@@ -155,7 +158,7 @@ public class RankManager extends FreedomService
         final FPlayer fPlayer = plugin.pl.getPlayer(player);
 
         // Unban admins
-        boolean isAdmin = plugin.al.isAdmin(player);
+        boolean isAdmin = plugin.al.isStaffMember(player);
         if (isAdmin)
         {
             // Verify strict IP match
@@ -172,7 +175,7 @@ public class RankManager extends FreedomService
         }
 
         // Handle impostors
-        if (plugin.al.isAdminImpostor(player))
+        if (plugin.al.isStaffImposter(player))
         {
             FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + Rank.IMPOSTOR.getColoredLoginMessage());
             FUtil.bcastMsg("Warning: " + player.getName() + " has been flagged as an impostor and has been frozen!", ChatColor.RED);
@@ -192,7 +195,7 @@ public class RankManager extends FreedomService
 
             if (isAdmin)
             {
-                Admin admin = plugin.al.getAdmin(player);
+                StaffMember admin = plugin.al.getStaffMember(player);
                 if (admin.hasLoginMessage())
                 {
                     loginMsg = ChatUtils.colorize(admin.getLoginMessage());
@@ -201,9 +204,9 @@ public class RankManager extends FreedomService
 
             FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + loginMsg);
             plugin.pl.getPlayer(player).setTag(display.getColoredTag());
-            if (plugin.al.isAdmin(player))
+            if (plugin.al.isStaffMember(player))
             {
-                Admin admin = plugin.al.getAdmin(player);
+                StaffMember admin = plugin.al.getStaffMember(player);
                 if (admin.getTag() != null)
                 {
                     plugin.pl.getPlayer(player).setTag(FUtil.colorize(admin.getTag()));
@@ -219,7 +222,7 @@ public class RankManager extends FreedomService
             {
             }
         }
-        if (!plugin.al.isAdmin(player) && ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(player.getName()))
+        if (!plugin.al.isStaffMember(player) && ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(player.getName()))
         {
             ShopData sd = plugin.sh.getData(player);
             final Displayable display = getDisplay(player);

@@ -10,7 +10,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
 @CommandParameters(description = "Mutes a player with brute force.", usage = "/<command> [[-s] <player> [reason] | list | purge | all]", aliases = "mute")
 public class Command_stfu extends FreedomCommand
 {
@@ -71,7 +71,7 @@ public class Command_stfu extends FreedomCommand
             int counter = 0;
             for (Player player : server.getOnlinePlayers())
             {
-                if (!plugin.al.isAdmin(player))
+                if (!plugin.al.isStaffMember(player))
                 {
                     playerdata = plugin.pl.getPlayer(player);
                     playerdata.setMuted(true);
@@ -113,7 +113,7 @@ public class Command_stfu extends FreedomCommand
         }
         else
         {
-            if (plugin.al.isAdmin(player))
+            if (plugin.al.isStaffMember(player))
             {
                 msg(player.getName() + " is an admin and can't be muted.");
                 return true;

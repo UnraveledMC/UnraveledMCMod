@@ -25,7 +25,7 @@ public class Command_onlinemode extends FreedomCommand
         {
             boolean onlineMode;
 
-            if (!plugin.al.isTelnetAdmin(sender) && !senderIsConsole)
+            if (!plugin.al.isAdmin(sender) && !senderIsConsole)
             {
                 noPerms();
                 return true;

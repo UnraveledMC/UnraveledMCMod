@@ -2,7 +2,7 @@ package me.unraveledmc.unraveledmcmod.command;
 
 import me.unraveledmc.unraveledmcmod.rank.Rank;
 import me.unraveledmc.unraveledmcmod.player.FPlayer;
-import me.unraveledmc.unraveledmcmod.admin.Admin;
+import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.util.FUtil;
 import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
 import org.bukkit.command.Command;
@@ -27,15 +27,15 @@ public class Command_verify extends FreedomCommand
             return true;
         }
         
-        if (!plugin.al.isAdminImpostor(playerSender))
+        if (!plugin.al.isStaffImposter(playerSender))
         {
             msg("You are not an imposter, therefore you do not need to verify", ChatColor.RED);
             return true;
         }
         
-        Admin admin = plugin.al.getEntryByName(playerSender.getName());
+        StaffMember staffMember = plugin.al.getEntryByName(playerSender.getName());
         
-        if (admin.getDiscordID() == null)
+        if (staffMember.getDiscordID() == null)
         {
             msg("You do not have a discord account linked to your minecraft account, please verify the manual way.", ChatColor.RED);
             return true;
@@ -50,7 +50,7 @@ public class Command_verify extends FreedomCommand
                 code += random.nextInt(10);
             }
             plugin.dc.VERIFY_CODES.add(code);
-            plugin.dc.sendMessage(plugin.dc.bot.getUserById(admin.getDiscordID()).getPrivateChannel(), "A user with the ip `" + Ips.getIp(playerSender) + "` has sent a verification request. Please run the following in-game command: `/verify " + code + "`");
+            plugin.dc.sendMessage(plugin.dc.bot.getUserById(staffMember.getDiscordID()).getPrivateChannel(), "A user with the ip `" + Ips.getIp(playerSender) + "` has sent a verification request. Please run the following in-game command: `/verify " + code + "`");
             msg("A verification code has been sent to your account, please copy the code and do /verify <code>", ChatColor.GREEN);
         }
         else
@@ -65,14 +65,14 @@ public class Command_verify extends FreedomCommand
             {
                 plugin.dc.VERIFY_CODES.remove(code);
                 FUtil.bcastMsg(playerSender.getName() + " has verified themself!", ChatColor.GOLD);
-                FUtil.adminAction(ConfigEntry.SERVER_NAME.getString(), "Readding " + admin.getName() + " to the admin list", true);
+                FUtil.adminAction(ConfigEntry.SERVER_NAME.getString(), "Readding " + staffMember.getName() + " to the staff list", true);
                 if (playerSender != null)
                 {
-                    admin.setName(playerSender.getName());
-                    admin.addIp(Ips.getIp(playerSender));
+                    staffMember.setName(playerSender.getName());
+                    staffMember.addIp(Ips.getIp(playerSender));
                 }
-                admin.setActive(true);
-                admin.setLastLogin(new Date());
+                staffMember.setActive(true);
+                staffMember.setLastLogin(new Date());
                 plugin.al.save();
                 plugin.al.updateTables();
                 final FPlayer fPlayer = plugin.pl.getPlayer(playerSender);
