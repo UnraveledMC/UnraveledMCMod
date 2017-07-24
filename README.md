@@ -1,5 +1,5 @@
 # UnraveledMCMod #
-A server modification for the UnraveledMC server
+A plugin modification for the UnraveledMC server.
 
 ![Spigot](https://unraveledmc.com/githubapi?spigotver)
 ![Aero](https://unraveledmc.com/githubapi?aerover)
@@ -17,7 +17,7 @@ This plugin was originally coded by Steven Lawson (Madgeek1450), with Jerom van 
 
 ### Please keep the following: ###
 
-Always keep /totalfreedommod (/tfm) as a command. It gives the main developers credit for what they originally started.
+Always keep `/totalfreedommod` (alias: `/tfm`) as a command. It gives the main developers credit for what they've originally started.
 
 In the FUtil class file, it would be nice if you keep the UMCDEVS list there, but you must keep the TFDEVS list in the file Not doing so will result in consequences from an actual TotalFreedom developer.
 
@@ -25,9 +25,8 @@ In the FUtil class file, it would be nice if you keep the UMCDEVS list there, bu
 You may download official binaries from the [releases page](https://github.com/TotalFreedom/TotalFreedomMod/releases).
 
 # UnraveledMCMod #
-UnraveledMCMod is a clone of TotalFreedomMod that is heavily modified. Now because it is cloned we must comply with the TFM licence:
+UnraveledMCMod is a clone of TotalFreedomMod that's heavily modified. Now because it's cloned, we must comply with the TFM license:
 
 Due to the the TFM license, we are not allowed to release official release jars of the plugin. You must compile the plugin with netbeans. Attempting to obtain money for compiling the plugin is strictly forbidden and illegal.
-for yourself!
 
-You are ALSO NOT ALLOWED TO SEND THE COMPILED VERSIONS OF UMC NOR TFM TO ANYONE!!! It is against the TFM license.
+You're also **not allowed** to send the compiled versions of TFM/UMCM to anyone. That's against the license.
