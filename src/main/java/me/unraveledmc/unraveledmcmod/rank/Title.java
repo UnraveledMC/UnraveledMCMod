@@ -9,9 +9,9 @@ public enum Title implements Displayable
     DONOR("a", "Donator", ChatColor.YELLOW, "Donator"),
     TFDEV("a", "TotalFreedom Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     UMCDEV("an", "UnraveledMC Developer", ChatColor.DARK_PURPLE, "UMC-Dev"),
-    EXEC("an", "Executive Admin", ChatColor.DARK_BLUE, "Executive"),
+    EXEC("an", "Executive Admin", ChatColor.DARK_RED, "Executive"),
     FOUNDER("the", "Founder", ChatColor.RED, "Founder"),
-    OWNER("an", "Owner", ChatColor.BLUE, "Owner");
+    OWNER("an", "Owner", ChatColor.DARK_GREEN, "Owner");
 
     @Getter
     private final String determiner;

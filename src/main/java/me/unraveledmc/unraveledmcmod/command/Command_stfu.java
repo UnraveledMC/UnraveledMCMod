@@ -65,7 +65,7 @@ public class Command_stfu extends FreedomCommand
 
         if (args[0].equalsIgnoreCase("all"))
         {
-            FUtil.adminAction(sender.getName(), "Muting all non-admins", true);
+            FUtil.adminAction(sender.getName(), "Muting all non-staff", true);
 
             FPlayer playerdata;
             int counter = 0;
@@ -115,7 +115,7 @@ public class Command_stfu extends FreedomCommand
         {
             if (plugin.al.isStaffMember(player))
             {
-                msg(player.getName() + " is an admin and can't be muted.");
+                msg(player.getName() + " is a staff member and can't be muted.");
                 return true;
             }
 

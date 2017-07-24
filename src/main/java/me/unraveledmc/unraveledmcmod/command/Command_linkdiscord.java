@@ -22,16 +22,16 @@ public class Command_linkdiscord extends FreedomCommand
             return true;
         }
         
-        StaffMember admin = plugin.al.getStaffMember(playerSender);
-        if (admin.getDiscordID() != null)
+        StaffMember staffMember = plugin.al.getStaffMember(playerSender);
+        if (staffMember.getDiscordID() != null)
         {
             msg("Your minecraft account is already linked to a discord account", ChatColor.RED);
             return true;
         }
         
-        if (plugin.dc.LINK_CODES.containsValue(admin))
+        if (plugin.dc.LINK_CODES.containsValue(staffMember))
         {
-            msg("Your linking code is " + ChatColor.GREEN + plugin.dc.getCodeForAdmin(admin), ChatColor.AQUA);
+            msg("Your linking code is " + ChatColor.GREEN + plugin.dc.getCodeForAdmin(staffMember), ChatColor.AQUA);
         }
         else
         {
@@ -41,7 +41,7 @@ public class Command_linkdiscord extends FreedomCommand
             {
                 code += random.nextInt(10);
             }
-            plugin.dc.LINK_CODES.put(code, admin);
+            plugin.dc.LINK_CODES.put(code, staffMember);
             msg("Your linking code is " + ChatColor.GREEN + code, ChatColor.AQUA);
         }
         return true;

@@ -81,13 +81,13 @@ shop:
   thor_hammer_price: 150
   
   # How much should Crescent Rose cost
-  crescent_rose_price: 420
+  crescent_rose_price: 300
   
   # How much should it cost a player to use Crescent Rose per attack
-  crescent_rose_use_price: 50
+  crescent_rose_use_price: 15
   
   # How much should the minigun cost
-  minigun_price: 300
+  minigun_price: 200
   
 # Staff
 staff:
@@ -409,11 +409,6 @@ famous_players:
 # Pet Protect - Prevent tamed pets from being killed.
 petprotect:
   enabled: true
-
-# Logviewer
-logs:
-  url: ''
-  secret: ''
 
 # Mojang service checker
 service_checker_url: http://status.mojang.com/check

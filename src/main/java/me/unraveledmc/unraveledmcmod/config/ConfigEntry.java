@@ -90,9 +90,6 @@ public enum ConfigEntry
     AUTOKICK_THRESHOLD(Double.class, "autokick.threshold"),
     AUTOKICK_TIME(Integer.class, "autokick.time"),
     //
-    LOGS_SECRET(String.class, "logs.secret"),
-    LOGS_URL(String.class, "logs.url"),
-    //
     FLATLANDS_GENERATE(Boolean.class, "flatlands.generate"),
     FLATLANDS_GENERATE_PARAMS(String.class, "flatlands.generate_params"),
     //

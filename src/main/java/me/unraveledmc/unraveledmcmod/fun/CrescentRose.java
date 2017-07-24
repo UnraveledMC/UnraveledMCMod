@@ -75,7 +75,7 @@ public class CrescentRose extends FreedomService
                         Player target = (Player)event.getHitEntity();
                         if (plugin.al.isStaffMember(target) && !FUtil.isExecutive(shooter.getName()))
                         {
-                            FUtil.playerMsg(shooter, "Sorry, but you can't attack admins with Crescent Rose!", ChatColor.RED);
+                            FUtil.playerMsg(shooter, "Sorry, but you can't attack staff members with Crescent Rose!", ChatColor.RED);
                             return;
                         }
                         if (target.getGameMode().equals(GameMode.CREATIVE) && !FUtil.isExecutive(shooter.getName()))
@@ -191,7 +191,7 @@ public class CrescentRose extends FreedomService
                     }
                     if (target instanceof Player && !plugin.al.isStaffMember(p) && plugin.al.isStaffMember((Player)target))
                     {	
-                        FUtil.playerMsg(p, "Sorry, but you can't attack admins with Crescent Rose!", ChatColor.RED);
+                        FUtil.playerMsg(p, "Sorry, but you can't attack staff members with Crescent Rose!", ChatColor.RED);
                         return;
                     }
                     // Executives don't need a cool down :^)

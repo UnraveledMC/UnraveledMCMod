@@ -1,4 +1,4 @@
-package me.unraveledmc.unraveledmcmod;
+package me.unraveledmc.unraveledmcmod.discord;
 
 import me.unraveledmc.unraveledmcmod.discord.MessageListener;
 import me.unraveledmc.unraveledmcmod.util.FLog;
@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import javax.security.auth.login.LoginException;
+import me.unraveledmc.unraveledmcmod.FreedomService;
+import me.unraveledmc.unraveledmcmod.UnraveledMCMod;
 
 public class Discord extends FreedomService
 {
@@ -73,13 +75,13 @@ public class Discord extends FreedomService
         channel.sendMessage(message);
     }
     
-    public static String getCodeForAdmin(StaffMember admin)
+    public static String getCodeForAdmin(StaffMember staffMember)
     {
         for (String code: LINK_CODES.keySet())
         {
-            if (LINK_CODES.get(code).equals(admin))
+            if (LINK_CODES.get(code).equals(staffMember))
             {
-              return code;
+                return code;
             }
         }
         return null;

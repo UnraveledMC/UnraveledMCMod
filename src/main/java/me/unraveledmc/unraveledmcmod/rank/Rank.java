@@ -8,7 +8,7 @@ public enum Rank implements Displayable
 
     IMPOSTOR("an", "Impostor", Type.PLAYER, "IMP", ChatColor.YELLOW),
     NON_OP("a", "Non-OP", Type.PLAYER, "", ChatColor.WHITE),
-    OP("an", "OP", Type.PLAYER, "OP", ChatColor.RED ),
+    OP("an", "OP", Type.PLAYER, "OP", ChatColor.RED),
     MOD("a", "Moderator", Type.STAFF, "Mod", ChatColor.GREEN),
     ADMIN("an", "Administrator", Type.STAFF, "Admin", ChatColor.BLUE),
     SENIOR_ADMIN("a", "Senior Administrator", Type.STAFF, "SrA", ChatColor.GOLD),

@@ -45,10 +45,10 @@ public class Command_say extends FreedomCommand
         
         if (!senderIsConsole)
         {
-            StaffMember admin = plugin.al.getStaffMember(playerSender);
-            if (admin.hasCustomShoutColor())
+            StaffMember staffMember = plugin.al.getStaffMember(playerSender);
+            if (staffMember.hasCustomShoutColor())
             {
-                color = admin.getShoutColor();
+                color = staffMember.getShoutColor();
             }
         }
         

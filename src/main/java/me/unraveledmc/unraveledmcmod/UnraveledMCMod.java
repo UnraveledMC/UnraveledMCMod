@@ -20,6 +20,7 @@ import me.unraveledmc.unraveledmcmod.bridge.WorldEditBridge;
 import me.unraveledmc.unraveledmcmod.caging.Cager;
 import me.unraveledmc.unraveledmcmod.command.CommandLoader;
 import me.unraveledmc.unraveledmcmod.config.MainConfig;
+import me.unraveledmc.unraveledmcmod.discord.Discord;
 import me.unraveledmc.unraveledmcmod.freeze.Freezer;
 import me.unraveledmc.unraveledmcmod.fun.ItemFun;
 import me.unraveledmc.unraveledmcmod.fun.Jumppads;
@@ -50,8 +51,8 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
     public static final String CONFIG_FILENAME = "config.yml";
     //
     public static String pluginName;
-    public static String pluginVersion = "2.0.1";
-    public static String buildDate = "07/23/2017";
+    public static String pluginVersion = "2.0.2";
+    public static String buildDate = "07/24/2017";
     public static String compiledBy = "CreeperSeth";
     //
     public MainConfig config;
@@ -61,7 +62,6 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
     public ServerInterface si;
     public SavedFlags sf;
     public WorldManager wm;
-    public LogViewer lv;
     public StaffList al;
     public RankManager rm;
     public CommandLoader cl;
@@ -159,7 +159,6 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
         si = services.registerService(ServerInterface.class);
         sf = services.registerService(SavedFlags.class);
         wm = services.registerService(WorldManager.class);
-        lv = services.registerService(LogViewer.class);
         al = services.registerService(StaffList.class);
         rm = services.registerService(RankManager.class);
         lvm = services.registerService(LevelManager.class);

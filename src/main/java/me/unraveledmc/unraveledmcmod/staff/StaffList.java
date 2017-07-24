@@ -355,7 +355,6 @@ public class StaffList extends FreedomService
             }
 
             staffMember.setActive(false);
-            plugin.lv.deactivateSuperadmin(staffMember);
         }
 
         save();

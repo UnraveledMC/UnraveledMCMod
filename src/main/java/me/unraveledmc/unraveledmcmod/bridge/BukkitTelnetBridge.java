@@ -51,15 +51,15 @@ public class BukkitTelnetBridge extends FreedomService
             return;
         }
 
-        final StaffMember admin = plugin.al.getEntryByIpFuzzy(ip);
+        final StaffMember staffMember = plugin.al.getEntryByIpFuzzy(ip);
 
-        if (admin == null || !admin.isActive() || !admin.getRank().hasConsoleVariant())
+        if (staffMember == null || !staffMember.isActive() || !staffMember.getRank().hasConsoleVariant())
         {
             return;
         }
 
         event.setBypassPassword(true);
-        event.setName(admin.getName());
+        event.setName(staffMember.getName());
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
@@ -85,14 +85,14 @@ public class BukkitTelnetBridge extends FreedomService
             boolean isTelnetAdmin = false;
             boolean isSeniorAdmin = false;
 
-            final StaffMember admin = plugin.al.getStaffMember(player);
-            if (admin != null)
+            final StaffMember staffMember = plugin.al.getStaffMember(player);
+            if (staffMember != null)
             {
-                boolean active = admin.isActive();
+                boolean active = staffMember.isActive();
 
                 isAdmin = active;
-                isSeniorAdmin = active && admin.getRank() == Rank.SENIOR_ADMIN;
-                isTelnetAdmin = active && (isSeniorAdmin || admin.getRank() == Rank.ADMIN);
+                isSeniorAdmin = active && staffMember.getRank() == Rank.SENIOR_ADMIN;
+                isTelnetAdmin = active && (isSeniorAdmin || staffMember.getRank() == Rank.ADMIN);
             }
 
             playerTags.put("tfm.admin.isAdmin", isAdmin);
