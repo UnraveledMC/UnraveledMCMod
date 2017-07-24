@@ -19,7 +19,6 @@ public class Command_nickclean extends FreedomCommand
     {
         ChatColor.MAGIC,
         ChatColor.STRIKETHROUGH,
-        ChatColor.UNDERLINE,
     };
     private static final Pattern REGEX = Pattern.compile(ChatColor.COLOR_CHAR + "[" + StringUtils.join(BLOCKED, "") + "]", Pattern.CASE_INSENSITIVE);
 
