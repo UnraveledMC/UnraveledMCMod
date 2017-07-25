@@ -1,6 +1,8 @@
 package me.unraveledmc.unraveledmcmod.command;
 
+import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
 import me.unraveledmc.unraveledmcmod.rank.Rank;
+import me.unraveledmc.unraveledmcmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -34,7 +36,7 @@ public class Command_gcmd extends FreedomCommand
             msg("The command you are trying to send is blocked");
             return true;
         }
-        if (plugin.al.isStaffMember(player))
+        if (plugin.al.isStaffMember(player) && !ConfigEntry.SERVER_OWNERS.getStringList().contains(player.getName()) || !ConfigEntry.SERVER_FOUNDERS.getStringList().contains(player.getName()) || !FUtil.UMCDEVS.contains(player.getName()))
         {
             msg("You can not force a staff member to run a command");
             return true;

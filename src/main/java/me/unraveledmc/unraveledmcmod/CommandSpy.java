@@ -1,6 +1,7 @@
 package me.unraveledmc.unraveledmcmod;
 
 import me.unraveledmc.unraveledmcmod.util.FUtil;
+import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -31,7 +32,11 @@ public class CommandSpy extends FreedomService
         {
             if (plugin.al.isStaffMember(player) && plugin.pl.getPlayer(player).cmdspyEnabled())
             {
-                if (!plugin.al.isStaffMember(event.getPlayer()))
+                if (plugin.al.isStaffMember(event.getPlayer()) && !ConfigEntry.SERVER_OWNERS.getStringList().contains(player.getName()) || !ConfigEntry.SERVER_FOUNDERS.getStringList().contains(player.getName()) || !FUtil.UMCDEVS.contains(player.getName()))
+                {
+                    continue;
+                }
+                if (event.getPlayer() != player)
                 {
                     FUtil.playerMsg(player, event.getPlayer().getName() + ": " + event.getMessage());
                 }

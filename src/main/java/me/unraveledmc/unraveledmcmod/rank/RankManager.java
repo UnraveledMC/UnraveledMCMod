@@ -91,7 +91,7 @@ public class RankManager extends FreedomService
         // If the player's the founder, display that
         if (ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
-            return Title.OWNER;
+            return Title.FOUNDER;
         }
         
         // If the player's an executive, display that

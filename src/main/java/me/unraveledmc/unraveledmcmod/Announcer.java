@@ -58,10 +58,14 @@ public class Announcer extends FreedomService
                     current = 0;
                 }
                 StringBuilder builder = new StringBuilder();
-                String[] currentAnnouncement = announcements.get(current).split("\\n");
-                for (int i = 0; i < currentAnnouncement.length; i++) 
+                String[] currentAnnouncement = announcements.get(current).split("\\\\n");
+                for (int i = 0; i < currentAnnouncement.length; i++)
                 {
                     builder.append(currentAnnouncement[i]);
+                    if (i != currentAnnouncement.length)
+                    {
+                        builder.append("\n");
+                    }
                 }
                 String announcement = builder.toString();
 

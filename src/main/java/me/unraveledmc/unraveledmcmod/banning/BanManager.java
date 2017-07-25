@@ -1,6 +1,5 @@
 package me.unraveledmc.unraveledmcmod.banning;
 
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ import java.util.Map;
 import java.util.Set;
 import me.unraveledmc.unraveledmcmod.FreedomService;
 import me.unraveledmc.unraveledmcmod.UnraveledMCMod;
-import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
 import me.unraveledmc.unraveledmcmod.player.PlayerData;
 import me.unraveledmc.unraveledmcmod.util.FLog;
 import me.unraveledmc.unraveledmcmod.util.FUtil;
@@ -31,7 +29,6 @@ public class BanManager extends FreedomService
     private final Set<Ban> bans = Sets.newHashSet();
     private final Map<String, Ban> ipBans = Maps.newHashMap();
     private final Map<String, Ban> nameBans = Maps.newHashMap();
-    private final List<String> unbannableUsernames = Lists.newArrayList();
     //
     private final YamlConfig config;
 
@@ -71,11 +68,6 @@ public class BanManager extends FreedomService
         updateViews();
 
         FLog.info("Loaded " + ipBans.size() + " IP bans and " + nameBans.size() + " username bans.");
-
-        // Load unbannable usernames
-        unbannableUsernames.clear();
-        unbannableUsernames.addAll((Collection<? extends String>) ConfigEntry.FAMOUS_PLAYERS.getList());
-        FLog.info("Loaded " + unbannableUsernames.size() + " unbannable usernames.");
     }
 
     @Override

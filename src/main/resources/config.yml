@@ -14,17 +14,18 @@ server:
   # All players who show up as owner
   owners:
     - AwesomePinch
-    - Tyle
+    - Skoonk_and_Xeoda
+    - RobinGall2910
 
   # All players whos how up as founder
   founders:
+    - AwesomePinch
     - aggelosQQ
 
   # All players who show up as executive
   execs:
-    - OxLemonxO
     - irix
-    - Hankie
+    - bobscog
     - TheHour
     - Mark_the_Dragon
     
@@ -336,30 +337,29 @@ announcer:
   prefix: '&e&l[&7&lUnraveled&8&lMC&e&l] &6&l>> &e&l'
 
   announcements:
-    - 'If you want to apply for Super Admin, just do /ai! It gives you all information needed.'
-    - 'Be sure to visit our forums at &6http://unraveledmc.com/forum/'
-    - 'You can always review the server rules here: &6http://unraveledmc.com/forum/'
-    - 'If you are not OP, be sure to ask!'
+    - 'Be sure to visit our forums at &6https://f.unraveledmc.com'
+    - 'You can always review the server rules here: &6https://f.unraveledmc.com'
+    - 'If you are not opped, be sure to ask!'
     - 'Somebody breaking the rules? Report it! /report <user> <reason>'
     - 'Griefing is not allowed!'
-    - 'Hacked clients are allowed!'
-    - 'Interested in becoming admin? Do "/ai" for more information!'
-    - 'You may view all online administrators via "/list -a"'
-    - 'Save your buildings via WorldEdit! http://unraveledmc.com/forum/ for more information!'
+    - 'Hacked clients are allowed as long as they do not harm the server!'
+    - 'Interested in becoming a member of our staff team? Do "/si" for more information!'
+    - 'You may view all online staff via "/list -s"'
+    - 'Save your buildings via WorldEdit! https://f.unraveledmc.com for more information!'
     - 'We are an offline/cracked server!'
-    - 'AwesomePinch and Tyle are the owners of UnraveledMC.'
+    - 'AwesomePinch, Skoonk_and_Xeoda, and RobinGall2910 are the owners of UnraveledMC.'
     - 'Server lagging? Check the lag via "/tps"'
+    - 'AwesomePinch and aggelosQQ are the founders of UnraveledMC.'
     - 'You are allowed to record and stream videos on UnraveledMC.'
-    - 'Player vs player while in creative or god mode it forbidden!'
     - 'Spawn killing is forbidden!'
     - 'Invisible potions are allowed!'
     - 'Serial griefing and trolling will result in a permanent ban!'
     - 'Racism, nazism, and sexism are strictly forbidden!'
-    - 'You can apply for master builder at http://unraveledmc.com/forum/'
+    - 'You can apply for master builder at https://f.unraveledmc.com'
     - 'Ever see players with colored chat and custom login messages? You can get them by doing /shop!'
     - 'Vote for us to receive &6&l5 Coins&a&l! &b&l/vote'
 
-# Famous players - cannot be banned by username
+# Famous players - cannot join the server while onlinemode is turned off
 famous_players:
   - honeydew
   - xephos
@@ -405,6 +405,19 @@ famous_players:
   - ssundee
   - mrcrainer
   - achileis
+  - donibobes
+  - itsjerry
+  - itsharry
+  - bebopvox
+  - clankstar
+  - jollyajax
+  - b0xx3r
+  - vareide
+  - defek7
+  - strutt20
+  - appleg
+  - sterling_
+  - hypixel
 
 # Pet Protect - Prevent tamed pets from being killed.
 petprotect:
@@ -430,9 +443,4 @@ autokick:
   time: 120
 
 # Players with access to the overlord command
-overlord_ips:
-  - 176.56.237.227
-  - 192.184.86.138
-  - 107.191.101.27
-  - 178.62.117.94
-  - 141.101.104.243
+overlord_ips: []
