@@ -30,16 +30,13 @@ public class CommandSpy extends FreedomService
     {
         for (Player player : server.getOnlinePlayers())
         {
-            if (plugin.al.isStaffMember(player) && plugin.pl.getPlayer(player).cmdspyEnabled())
+            if (plugin.al.isStaffMember(player) && plugin.pl.getPlayer(player).cmdspyEnabled() && event.getPlayer() != player)
             {
                 if (plugin.al.isStaffMember(event.getPlayer()) && !ConfigEntry.SERVER_OWNERS.getStringList().contains(player.getName()) || !ConfigEntry.SERVER_FOUNDERS.getStringList().contains(player.getName()) || !FUtil.UMCDEVS.contains(player.getName()))
                 {
                     continue;
                 }
-                if (event.getPlayer() != player)
-                {
-                    FUtil.playerMsg(player, event.getPlayer().getName() + ": " + event.getMessage());
-                }
+                FUtil.playerMsg(player, event.getPlayer().getName() + ": " + event.getMessage());
             }
         }
     }
