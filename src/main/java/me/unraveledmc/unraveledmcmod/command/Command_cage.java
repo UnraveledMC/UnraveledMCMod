@@ -25,7 +25,7 @@ public class Command_cage extends FreedomCommand
 
         if ("off".equals(args[0]) && sender instanceof Player)
         {
-            FUtil.adminAction(sender.getName(), "Uncaging " + sender.getName(), true);
+            FUtil.staffAction(sender.getName(), "Uncaging " + sender.getName(), true);
             FPlayer playerdata = plugin.pl.getPlayer(playerSender);
 
             playerdata.getCageData().setCaged(false);
@@ -33,7 +33,7 @@ public class Command_cage extends FreedomCommand
         }
         else if ("purge".equals(args[0]))
         {
-            FUtil.adminAction(sender.getName(), "Uncaging all players", true);
+            FUtil.staffAction(sender.getName(), "Uncaging all players", true);
 
             for (Player player : server.getOnlinePlayers())
             {
@@ -61,7 +61,7 @@ public class Command_cage extends FreedomCommand
         {
             if ("off".equals(args[1]))
             {
-                FUtil.adminAction(sender.getName(), "Uncaging " + player.getName(), true);
+                FUtil.staffAction(sender.getName(), "Uncaging " + player.getName(), true);
                 playerdata.getCageData().setCaged(false);
 
                 return true;
@@ -98,11 +98,11 @@ public class Command_cage extends FreedomCommand
 
         if (outerMaterial != Material.SKULL)
         {
-            FUtil.adminAction(sender.getName(), "Caging " + player.getName(), true);
+            FUtil.staffAction(sender.getName(), "Caging " + player.getName(), true);
         }
         else
         {
-            FUtil.adminAction(sender.getName(), "Caging " + player.getName() + " in PURE_DARTH", true);
+            FUtil.staffAction(sender.getName(), "Caging " + player.getName() + " in PURE_DARTH", true);
         }
 
         return true;

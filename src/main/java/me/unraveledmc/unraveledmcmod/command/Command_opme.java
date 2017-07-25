@@ -20,7 +20,7 @@ public class Command_opme extends FreedomCommand
             msg("You can not op yourself because you have been deopped by an administrator.", ChatColor.RED);
             return true;
         }
-        FUtil.adminAction(sender.getName(), "Opping " + sender.getName(), false);
+        FUtil.staffAction(sender.getName(), "Opping " + sender.getName(), false);
         sender.setOp(true);
         plugin.da.setAdminDeopped(sender.getName(), false);
         sender.sendMessage(FreedomCommand.YOU_ARE_OP);

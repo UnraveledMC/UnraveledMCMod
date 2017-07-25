@@ -17,7 +17,7 @@ public class Command_lockdown extends FreedomCommand
     {
        boolean active = !plugin.lp.isLockdownEnabled();
        plugin.lp.setLockdownEnabled(active);
-       FUtil.adminAction(sender.getName(), (active ? "A" : "De-a") + "ctivating server lockdown", true);
+       FUtil.staffAction(sender.getName(), (active ? "A" : "De-a") + "ctivating server lockdown", true);
        return true;
     }
 }

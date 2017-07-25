@@ -66,7 +66,7 @@ public class Command_tempban extends FreedomCommand
             }
         }
 
-        FUtil.adminAction(sender.getName(), message.toString(), true);
+        FUtil.staffAction(sender.getName(), message.toString(), true);
 
         plugin.bm.addBan(Ban.forPlayer(player, sender, expires, reason));
 

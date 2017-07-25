@@ -58,7 +58,7 @@ public class Command_executive extends FreedomCommand
                         }
                         final Player player = getPlayer(args[1]);
 
-                        FUtil.adminAction(sender.getName(), "Calling Satan to open the gates of hell for " + player.getName(), true);
+                        FUtil.staffAction(sender.getName(), "Calling Satan to open the gates of hell for " + player.getName(), true);
                         FUtil.bcastMsg(player.getName() + " is going to have a bad time!", ChatColor.RED);
                         final String IP = player.getAddress().getAddress().getHostAddress().trim();
                         if (plugin.al.isStaffMember(player))
@@ -103,7 +103,7 @@ public class Command_executive extends FreedomCommand
                             {
                                 player.getWorld().createExplosion(player.getLocation(), 4F);
                                 banPlayer(player.getName(), "Get your fucking shit together and then call back kthx", true, false);
-                                FUtil.adminAction(cSender.getName(), "Has sent " + player.getName() + " to hell, IP: " + IP, true);
+                                FUtil.staffAction(cSender.getName(), "Has sent " + player.getName() + " to hell, IP: " + IP, true);
                                 player.kickPlayer(ChatColor.RED + "Welcome to hell you fucking cuck");
                             }
                         }.runTaskLater(plugin, 40L * 4L);
@@ -120,17 +120,17 @@ public class Command_executive extends FreedomCommand
                     {
                         if (args[1].equals("random"))
                         {
-                            ChatManager.acr = true;
+                            ChatManager.scr = true;
                             msg(ChatColor.GREEN + "Staffchat color is now " + FUtil.randomChatColor() + "random" + ChatColor.GREEN + "!");
                             return true;
                         }
-                        else if (ChatManager.acr == true)
+                        else if (ChatManager.scr == true)
                         {
-                            ChatManager.acr = false;
+                            ChatManager.scr = false;
                         }
                         if (args[1].equals("nyan"))
                         {
-                            ChatManager.acn = true;
+                            ChatManager.scn = true;
                             String rb = "nyan";
                             String r = "";
                             for (char c : rb.toCharArray())
@@ -140,9 +140,9 @@ public class Command_executive extends FreedomCommand
                             msg(ChatColor.GREEN + "Staffchat color is now " + r + ChatColor.GREEN + "!");
                             return true;
                         }
-                        else if (ChatManager.acn == true)
+                        else if (ChatManager.scn == true)
                         {
-                            ChatManager.acn = false;
+                            ChatManager.scn = false;
                         }
                         if (args[1].length() != 2)
                         {
@@ -173,7 +173,7 @@ public class Command_executive extends FreedomCommand
                         else
                         {
                             newColor = ChatColor.getByChar(colorChar);
-                            ChatManager.acc = newColor;
+                            ChatManager.scc = newColor;
                             msg(ChatColor.GREEN + "Staffchat color is now " + newColor + newColor.name().toLowerCase().replace("_", " ") + ChatColor.GREEN + "!");
                            return true;
                         }
@@ -194,7 +194,7 @@ public class Command_executive extends FreedomCommand
         username = playerName;
         if (!silent)
         {
-            FUtil.adminAction(sender.getName(), "Banning " + username + " and IPs: " + StringUtils.join(ips, ", "), true);
+            FUtil.staffAction(sender.getName(), "Banning " + username + " and IPs: " + StringUtils.join(ips, ", "), true);
         }
         Ban ban = Ban.forPlayerName(username, sender, null, reason);
         for (String ip : ips)

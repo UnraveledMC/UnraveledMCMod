@@ -20,13 +20,13 @@ public class Command_camera extends FreedomCommand
         {
             if (args[0].equalsIgnoreCase("selfie"))
             {
-                FUtil.adminAction(playerSender.getName(), "Has started taking selfies!", false);
+                FUtil.staffAction(playerSender.getName(), "Has started taking selfies!", false);
                 playerSender.chat("But first, let me take a selfie!");
                 return true;
             }
             if (args[0].equalsIgnoreCase("throw"))
             {
-                FUtil.adminAction(playerSender.getName(), "Has thrown the fucking camera!", true);
+                FUtil.staffAction(playerSender.getName(), "Has thrown the fucking camera!", true);
                 playerSender.chat("Fuck you camera you're a bitch!");
                 final Location targetPos = playerSender.getLocation();
                 final World world = playerSender.getWorld();

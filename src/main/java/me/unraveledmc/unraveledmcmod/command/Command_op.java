@@ -57,7 +57,7 @@ public class Command_op extends FreedomCommand
             return true;
         }
 
-        FUtil.adminAction(sender.getName(), "Opping " + player.getName(), false);
+        FUtil.staffAction(sender.getName(), "Opping " + player.getName(), false);
         player.setOp(true);
         plugin.da.setAdminDeopped(player.getName(), false);
 

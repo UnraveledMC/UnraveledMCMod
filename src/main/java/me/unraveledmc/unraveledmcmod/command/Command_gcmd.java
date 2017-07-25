@@ -36,7 +36,7 @@ public class Command_gcmd extends FreedomCommand
             msg("The command you are trying to send is blocked");
             return true;
         }
-        if (plugin.al.isStaffMember(player) && !ConfigEntry.SERVER_OWNERS.getStringList().contains(player.getName()) || !ConfigEntry.SERVER_FOUNDERS.getStringList().contains(player.getName()) || !FUtil.UMCDEVS.contains(player.getName()))
+        if (plugin.al.isStaffMember(player) && !ConfigEntry.SERVER_OWNERS.getStringList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getStringList().contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()))
         {
             msg("You can not force a staff member to run a command");
             return true;

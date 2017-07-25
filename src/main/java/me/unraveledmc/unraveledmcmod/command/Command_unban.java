@@ -34,7 +34,7 @@ public class Command_unban extends FreedomCommand
             username = entry.getUsername();
             ips.addAll(entry.getIps());
 
-            FUtil.adminAction(sender.getName(), "Unbanning " + username + " and IPs: " + StringUtils.join(ips, ", "), true);
+            FUtil.staffAction(sender.getName(), "Unbanning " + username + " and IPs: " + StringUtils.join(ips, ", "), true);
             plugin.bm.removeBan(plugin.bm.getByUsername(username));
 
             for (String ip : ips)

@@ -43,7 +43,7 @@ public class Command_potion extends FreedomCommand
                     noPerms();
                     return true;
                 }
-                FUtil.adminAction(sender.getName(), "Cleared all potion effects from all players", true);
+                FUtil.staffAction(sender.getName(), "Cleared all potion effects from all players", true);
                 for (Player target : server.getOnlinePlayers())
                 {
                     for (PotionEffect potion_effect : target.getActivePotionEffects())

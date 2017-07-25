@@ -38,7 +38,7 @@ public class Command_saconfig extends FreedomCommand
             {
                 checkRank(Rank.ADMIN);
 
-                FUtil.adminAction(sender.getName(), "Cleaning the staff list", true);
+                FUtil.staffAction(sender.getName(), "Cleaning the staff list", true);
                 plugin.al.deactivateOldEntries(true);
                 msg("Staff members: " + StringUtils.join(plugin.al.getStaffNames(), ", "), ChatColor.GOLD);
 
@@ -49,7 +49,7 @@ public class Command_saconfig extends FreedomCommand
             {
                 checkRank(Rank.MOD);
 
-                FUtil.adminAction(sender.getName(), "Reloading the staff list", true);
+                FUtil.staffAction(sender.getName(), "Reloading the staff list", true);
                 plugin.al.load();
                 msg("Staff list reloaded!");
                 return true;
@@ -90,7 +90,7 @@ public class Command_saconfig extends FreedomCommand
                     return true;
                 }
 
-                FUtil.adminAction(sender.getName(), "Setting " + staffMember.getName() + "'s rank to " + rank.getName(), true);
+                FUtil.staffAction(sender.getName(), "Setting " + staffMember.getName() + "'s rank to " + rank.getName(), true);
 
                 staffMember.setRank(rank);
                 plugin.al.save();
@@ -167,12 +167,12 @@ public class Command_saconfig extends FreedomCommand
                         return true;
                     }
 
-                    FUtil.adminAction(sender.getName(), "Adding " + player.getName() + " to the staff list", true);
+                    FUtil.staffAction(sender.getName(), "Adding " + player.getName() + " to the staff list", true);
                     plugin.al.addStaffMember(new StaffMember(player));
                 }
                 else // Existing staff member
                 {
-                    FUtil.adminAction(sender.getName(), "Readding " + staffMember.getName() + " to the staff list", true);
+                    FUtil.staffAction(sender.getName(), "Readding " + staffMember.getName() + " to the staff list", true);
 
                     if (player != null)
                     {
@@ -218,7 +218,7 @@ public class Command_saconfig extends FreedomCommand
                     return true;
                 }
 
-                FUtil.adminAction(sender.getName(), "Removing " + staffMember.getName() + " from the staff list", true);
+                FUtil.staffAction(sender.getName(), "Removing " + staffMember.getName() + " from the staff list", true);
                 staffMember.setActive(false);
                 plugin.al.save();
                 plugin.al.updateTables();

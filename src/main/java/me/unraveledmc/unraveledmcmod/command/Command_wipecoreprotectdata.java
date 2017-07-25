@@ -16,7 +16,7 @@ public class Command_wipecoreprotectdata extends FreedomCommand
     @Override
     public boolean run(final CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        FUtil.adminAction(sender.getName(), "Wiping CoreProtect data for the flatlands", true);
+        FUtil.staffAction(sender.getName(), "Wiping CoreProtect data for the flatlands", true);
         new BukkitRunnable()
         {
             @Override

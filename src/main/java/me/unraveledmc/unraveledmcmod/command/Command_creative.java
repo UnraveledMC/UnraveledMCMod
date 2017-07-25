@@ -37,7 +37,7 @@ public class Command_creative extends FreedomCommand
                 targetPlayer.setGameMode(GameMode.CREATIVE);
             }
 
-            FUtil.adminAction(sender.getName(), "Changing everyone's gamemode to creative", false);
+            FUtil.staffAction(sender.getName(), "Changing everyone's gamemode to creative", false);
             return true;
         }
 

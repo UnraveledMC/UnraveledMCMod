@@ -23,7 +23,7 @@ public class Command_blockcmd extends FreedomCommand
 
         if (args[0].equals("purge"))
         {
-            FUtil.adminAction(sender.getName(), "Unblocking commands for all players", true);
+            FUtil.staffAction(sender.getName(), "Unblocking commands for all players", true);
             int counter = 0;
             for (Player player : server.getOnlinePlayers())
             {
@@ -40,7 +40,7 @@ public class Command_blockcmd extends FreedomCommand
 
         if (args[0].equals("-a"))
         {
-            FUtil.adminAction(sender.getName(), "Blocking commands for all non-staff", true);
+            FUtil.staffAction(sender.getName(), "Blocking commands for all non-staff", true);
             int counter = 0;
             for (Player player : server.getOnlinePlayers())
             {
@@ -76,7 +76,7 @@ public class Command_blockcmd extends FreedomCommand
 
         playerdata.setCommandsBlocked(!playerdata.allCommandsBlocked());
 
-        FUtil.adminAction(sender.getName(), (playerdata.allCommandsBlocked() ? "B" : "Unb") + "locking all commands for " + player.getName(), true);
+        FUtil.staffAction(sender.getName(), (playerdata.allCommandsBlocked() ? "B" : "Unb") + "locking all commands for " + player.getName(), true);
         msg((playerdata.allCommandsBlocked() ? "B" : "Unb") + "locked all commands.");
 
         return true;

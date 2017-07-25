@@ -37,7 +37,7 @@ public class Command_survival extends FreedomCommand
                 targetPlayer.setGameMode(GameMode.SURVIVAL);
             }
 
-            FUtil.adminAction(sender.getName(), "Changing everyone's gamemode to survival", false);
+            FUtil.staffAction(sender.getName(), "Changing everyone's gamemode to survival", false);
             return true;
         }
 

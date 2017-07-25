@@ -33,7 +33,7 @@ public class Command_doom extends FreedomCommand
             return true;
         }
 
-        FUtil.adminAction(sender.getName(), "Casting oblivion over " + player.getName(), true);
+        FUtil.staffAction(sender.getName(), "Casting oblivion over " + player.getName(), true);
         FUtil.bcastMsg(player.getName() + " will be completely obliviated!", ChatColor.RED);
 
         final String ip = player.getAddress().getAddress().getHostAddress().trim();
@@ -42,7 +42,7 @@ public class Command_doom extends FreedomCommand
         StaffMember staffMember = getStaffMember(player);
         if (staffMember != null)
         {
-            FUtil.adminAction(sender.getName(), "Removing " + player.getName() + " from the staff list", true);
+            FUtil.staffAction(sender.getName(), "Removing " + player.getName() + " from the staff list", true);
             staffMember.setActive(false);
             plugin.al.save();
             plugin.al.updateTables();
@@ -98,7 +98,7 @@ public class Command_doom extends FreedomCommand
             public void run()
             {
                 // message
-                FUtil.adminAction(sender.getName(), "Banning " + player.getName() + ", IP: " + ip, true);
+                FUtil.staffAction(sender.getName(), "Banning " + player.getName() + ", IP: " + ip, true);
 
                 // generate explosion
                 player.getWorld().createExplosion(player.getLocation(), 0F, false);

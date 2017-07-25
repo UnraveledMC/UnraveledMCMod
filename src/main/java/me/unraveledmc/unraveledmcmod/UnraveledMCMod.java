@@ -52,7 +52,7 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
     //
     public static String pluginName;
     public static String pluginVersion = "2.0.2";
-    public static String buildDate = "07/24/2017";
+    public static String buildDate = "07/25/2017";
     public static String compiledBy = "CreeperSeth";
     //
     public MainConfig config;

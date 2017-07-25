@@ -38,7 +38,7 @@ public class Command_adventure extends FreedomCommand
                 targetPlayer.setGameMode(GameMode.ADVENTURE);
             }
 
-            FUtil.adminAction(sender.getName(), "Changing everyone's gamemode to adventure", false);
+            FUtil.staffAction(sender.getName(), "Changing everyone's gamemode to adventure", false);
             return true;
         }
 

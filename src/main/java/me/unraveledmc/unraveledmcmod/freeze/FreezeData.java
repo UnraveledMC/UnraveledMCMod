@@ -67,7 +67,7 @@ public class FreezeData
             @Override
             public void run()
             {
-                FUtil.adminAction(ConfigEntry.SERVER_NAME.getString(), "Unfreezing " + player.getName(), false);
+                FUtil.staffAction(ConfigEntry.SERVER_NAME.getString(), "Unfreezing " + player.getName(), false);
                 setFrozen(false);
             }
 

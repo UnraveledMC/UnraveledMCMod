@@ -28,7 +28,7 @@ public class Command_setlimit extends FreedomCommand
                 return true;
             }
         }
-        FUtil.adminAction(sender.getName(), "Setting everyone's Worldedit block modification limit to " + amount + ".", true);
+        FUtil.staffAction(sender.getName(), "Setting everyone's Worldedit block modification limit to " + amount + ".", true);
         for (final Player player : server.getOnlinePlayers())
         {
             plugin.web.setLimit(player, amount);

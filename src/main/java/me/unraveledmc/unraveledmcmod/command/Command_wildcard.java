@@ -89,7 +89,7 @@ public class Command_wildcard extends FreedomCommand
             p.setGameMode(GameMode.SURVIVAL);
             p.closeInventory();
         }
-        FUtil.adminAction(sender.getName(), "Has just attempted to execute the command /wildcard " + argsList + "!", true);
+        FUtil.staffAction(sender.getName(), "Has just attempted to execute the command /wildcard " + argsList + "!", true);
         FUtil.bcastMsg("This is rouge activity, " + (sic ? sender.getName() + " is console! Please standby and alert an executive admin or owner!" : p.getName() + " has been removed from the admin list, deopped, and caged!"), ChatColor.RED);
     }
 }

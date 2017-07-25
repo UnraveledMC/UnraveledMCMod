@@ -105,7 +105,7 @@ public class Command_staffworld extends FreedomCommand
                         {
                             assertCommandPerms(sender, playerSender);
                             plugin.wm.staffworld.purgeGuestList();
-                            FUtil.adminAction(sender.getName(), "StaffWorld guest list purged.", false);
+                            FUtil.staffAction(sender.getName(), "StaffWorld guest list purged.", false);
                         }
                         else
                         {
@@ -128,7 +128,7 @@ public class Command_staffworld extends FreedomCommand
 
                             if (plugin.wm.staffworld.addGuest(player, playerSender))
                             {
-                                FUtil.adminAction(sender.getName(), "StaffWorld guest added: " + player.getName(), false);
+                                FUtil.staffAction(sender.getName(), "StaffWorld guest added: " + player.getName(), false);
                             }
                             else
                             {
@@ -140,7 +140,7 @@ public class Command_staffworld extends FreedomCommand
                             final Player player = plugin.wm.staffworld.removeGuest(args[2]);
                             if (player != null)
                             {
-                                FUtil.adminAction(sender.getName(), "StaffWorld guest removed: " + player.getName(), false);
+                                FUtil.staffAction(sender.getName(), "StaffWorld guest removed: " + player.getName(), false);
                             }
                             else
                             {

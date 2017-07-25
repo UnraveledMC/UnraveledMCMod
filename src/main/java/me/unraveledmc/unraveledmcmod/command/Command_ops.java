@@ -48,7 +48,7 @@ public class Command_ops extends FreedomCommand
                 return true;
             }
 
-            FUtil.adminAction(sender.getName(), "Purging all operators", true);
+            FUtil.staffAction(sender.getName(), "Purging all operators", true);
 
             for (OfflinePlayer player : server.getOperators())
             {

@@ -69,7 +69,7 @@ public class Command_glist extends FreedomCommand
 
         if ("ban".equals(args[0]))
         {
-            FUtil.adminAction(sender.getName(), "Banning " + username + " and IPs: " + StringUtils.join(ips, ", "), true);
+            FUtil.staffAction(sender.getName(), "Banning " + username + " and IPs: " + StringUtils.join(ips, ", "), true);
 
             final String reason = args.length > 2 ? StringUtils.join(args, " ", 2, args.length) : null;
 
@@ -90,7 +90,7 @@ public class Command_glist extends FreedomCommand
 
         if ("unban".equals(args[0]))
         {
-            FUtil.adminAction(sender.getName(), "Unbanning " + username + " and IPs: " + StringUtils.join(ips, ", "), true);
+            FUtil.staffAction(sender.getName(), "Unbanning " + username + " and IPs: " + StringUtils.join(ips, ", "), true);
             plugin.bm.removeBan(plugin.bm.getByUsername(username));
 
             for (String ip : ips)

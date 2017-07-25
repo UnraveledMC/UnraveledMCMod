@@ -22,7 +22,7 @@ public class Command_mobpurge extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        FUtil.adminAction(sender.getName(), "Purging all mobs", true);
+        FUtil.staffAction(sender.getName(), "Purging all mobs", true);
         msg(purgeMobs() + " mobs removed.");
         return true;
     }

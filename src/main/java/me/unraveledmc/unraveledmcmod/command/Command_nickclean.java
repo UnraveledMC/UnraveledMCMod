@@ -25,7 +25,7 @@ public class Command_nickclean extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        FUtil.adminAction(sender.getName(), "Cleaning all nicknames", false);
+        FUtil.staffAction(sender.getName(), "Cleaning all nicknames", false);
 
         for (final Player player : server.getOnlinePlayers())
         {

@@ -21,7 +21,7 @@ public class Command_wipeessdata extends FreedomCommand
             return true;
         }
 
-        FUtil.adminAction(sender.getName(), "Wiping warps and essentials playerdata", true);
+        FUtil.staffAction(sender.getName(), "Wiping warps and essentials playerdata", true);
 
         FUtil.deleteFolder(new File(server.getPluginManager().getPlugin("UMC-Essentials").getDataFolder(), "userdata"));
         FUtil.deleteFolder(new File(server.getPluginManager().getPlugin("UMC-Essentials").getDataFolder(), "warps"));

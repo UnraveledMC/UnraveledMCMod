@@ -49,7 +49,7 @@ public class Command_tag extends FreedomCommand
                     return true;
                 }
 
-                FUtil.adminAction(sender.getName(), "Removing all tags", false);
+                FUtil.staffAction(sender.getName(), "Removing all tags", false);
 
                 int count = 0;
                 for (final Player player : server.getOnlinePlayers())

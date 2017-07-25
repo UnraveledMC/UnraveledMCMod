@@ -23,12 +23,12 @@ public class Command_freeze extends FreedomCommand
 
             if (!gFreeze)
             {
-                FUtil.adminAction(sender.getName(), "Disabling global player freeze", false);
+                FUtil.staffAction(sender.getName(), "Disabling global player freeze", false);
                 msg("Players are now free to move.");
                 return true;
             }
 
-            FUtil.adminAction(sender.getName(), "Enabling global player freeze", false);
+            FUtil.staffAction(sender.getName(), "Enabling global player freeze", false);
             for (Player player : server.getOnlinePlayers())
             {
                 if (!isStaffMember(player))
@@ -43,7 +43,7 @@ public class Command_freeze extends FreedomCommand
 
         if (args[0].equals("purge"))
         {
-            FUtil.adminAction(sender.getName(), "Unfreezing all players", false);
+            FUtil.staffAction(sender.getName(), "Unfreezing all players", false);
             plugin.fm.purge();
             return true;
         }

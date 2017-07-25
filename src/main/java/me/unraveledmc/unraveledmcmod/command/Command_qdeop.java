@@ -49,7 +49,7 @@ public class Command_qdeop extends FreedomCommand
         {
             if (!silent)
             {
-                FUtil.adminAction(sender.getName(), "De-opping " + StringUtils.join(matchedPlayerNames, ", "), false);
+                FUtil.staffAction(sender.getName(), "De-opping " + StringUtils.join(matchedPlayerNames, ", "), false);
             }
         }
         else

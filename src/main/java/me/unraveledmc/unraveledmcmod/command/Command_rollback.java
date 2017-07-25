@@ -57,7 +57,7 @@ public class Command_rollback extends FreedomCommand
 
         if (args.length == 1)
         {
-            FUtil.adminAction(sender.getName(), "Rolling back player: " + playerName, false);
+            FUtil.staffAction(sender.getName(), "Rolling back player: " + playerName, false);
             plugin.cpb.rollback(playerName);
             msg("If this rollback was a mistake, use /rollback " + playerName + " undo to reverse the rollback.");
             return true;
@@ -65,7 +65,7 @@ public class Command_rollback extends FreedomCommand
 
         if (args.length == 2 && args[0].equalsIgnoreCase("undo"))
         {
-            FUtil.adminAction(sender.getName(), "Reverting rollback for player: " + playerName, false);
+            FUtil.staffAction(sender.getName(), "Reverting rollback for player: " + playerName, false);
             plugin.cpb.undoRollback(playerName);
             return true;
         }

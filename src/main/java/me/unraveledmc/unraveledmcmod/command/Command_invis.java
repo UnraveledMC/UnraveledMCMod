@@ -23,7 +23,7 @@ public class Command_invis extends FreedomCommand
         {
             if (args[0].equalsIgnoreCase("smite"))
             {
-                FUtil.adminAction(sender.getName(), "Smiting all invisible players", true);
+                FUtil.staffAction(sender.getName(), "Smiting all invisible players", true);
                 smite = true;
             }
             else

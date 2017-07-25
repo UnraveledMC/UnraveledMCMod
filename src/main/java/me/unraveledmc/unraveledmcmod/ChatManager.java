@@ -18,9 +18,9 @@ import org.bukkit.SoundCategory;
 
 public class ChatManager extends FreedomService
 {
-    public static ChatColor acc = ChatColor.GOLD;
-    public static boolean acr = false;
-    public static boolean acn = false;
+    public static ChatColor scc = ChatColor.GOLD;
+    public static boolean scr = false;
+    public static boolean scn = false;
     // Putting an end to free hosted server advertisements
     public static final List<String> DISGUSTING_HOST_DOMAINS = Arrays.asList(new String[]
             {
@@ -169,13 +169,13 @@ public class ChatManager extends FreedomService
         {
             if (plugin.al.isStaffMember(player))
             {
-                ChatColor cc = acc;
-                if (acr == true)
+                ChatColor cc = scc;
+                if (scr == true)
                 {
                     cc = FUtil.randomChatColor();
-                    player.sendMessage("[" + ChatColor.AQUA + "ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + cc + message);
+                    player.sendMessage("[" + ChatColor.AQUA + "STAFF" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + cc + message);
                 }
-                else if (acn == true)
+                else if (scn == true)
                 {
                     String rm = "";
                     for (char c : message.toCharArray())
@@ -183,11 +183,11 @@ public class ChatManager extends FreedomService
                         ChatColor rc = FUtil.randomChatColor();
                         rm = rm + rc + c;
                     }
-                    player.sendMessage("[" + ChatColor.AQUA + "ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + rm);
+                    player.sendMessage("[" + ChatColor.AQUA + "STAFF" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + rm);
                 }
                 else
                 {
-                    player.sendMessage("[" + ChatColor.AQUA + "ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + cc + message);
+                    player.sendMessage("[" + ChatColor.AQUA + "STAFF" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + cc + message);
                 }
          
             }

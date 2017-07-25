@@ -69,11 +69,11 @@ public class Command_myadmin extends FreedomCommand
 
                 if (init == null)
                 {
-                    FUtil.adminAction(sender.getName(), "Clearing my IPs", true);
+                    FUtil.staffAction(sender.getName(), "Clearing my IPs", true);
                 }
                 else
                 {
-                    FUtil.adminAction(sender.getName(), "Clearing " + target.getName() + "' IPs", true);
+                    FUtil.staffAction(sender.getName(), "Clearing " + target.getName() + "' IPs", true);
                 }
 
                 int counter = target.getIps().size() - 1;
@@ -120,7 +120,7 @@ public class Command_myadmin extends FreedomCommand
                     return true;
                 }
 
-                FUtil.adminAction(sender.getName(), "Removing an IP" + (init == null ? "" : " from " + targetPlayer.getName() + "'s IPs"), true);
+                FUtil.staffAction(sender.getName(), "Removing an IP" + (init == null ? "" : " from " + targetPlayer.getName() + "'s IPs"), true);
 
                 target.removeIp(args[1]);
                 plugin.al.save();
@@ -139,7 +139,7 @@ public class Command_myadmin extends FreedomCommand
                 }
 
                 String msg = StringUtils.join(args, " ", 1, args.length);
-                FUtil.adminAction(sender.getName(), "Setting personal login message" + (init == null ? "" : " for " + targetPlayer.getName()), false);
+                FUtil.staffAction(sender.getName(), "Setting personal login message" + (init == null ? "" : " for " + targetPlayer.getName()), false);
                 target.setLoginMessage(msg);
                 msg((init == null ? "Your" : targetPlayer.getName() + "'s") + " login message is now: ");
                 msg("> " + ChatColor.AQUA + targetPlayer.getName() + " is " + FUtil.colorize(target.getLoginMessage()));
@@ -150,7 +150,7 @@ public class Command_myadmin extends FreedomCommand
 
             case "clearlogin":
             {
-                FUtil.adminAction(sender.getName(), "Clearing personal login message" + (init == null ? "" : " for " + targetPlayer.getName()), false);
+                FUtil.staffAction(sender.getName(), "Clearing personal login message" + (init == null ? "" : " for " + targetPlayer.getName()), false);
                 target.setLoginMessage(null);
                 plugin.al.save();
                 plugin.al.updateTables();
@@ -171,7 +171,7 @@ public class Command_myadmin extends FreedomCommand
                 }
                 else
                 {
-                    FUtil.adminAction(sender.getName(), "Setting shoutcolor" + (init == null ? "" : " for " + targetPlayer.getName()), false);
+                    FUtil.staffAction(sender.getName(), "Setting shoutcolor" + (init == null ? "" : " for " + targetPlayer.getName()), false);
                     target.setShoutColor(args[1]);
                     plugin.al.save();
                     plugin.al.updateTables();
@@ -181,7 +181,7 @@ public class Command_myadmin extends FreedomCommand
             
             case "settag":
             {
-                FUtil.adminAction(sender.getName(), "Setting personal default tag" + (init == null ? "" : " for " + targetPlayer.getName()), false);
+                FUtil.staffAction(sender.getName(), "Setting personal default tag" + (init == null ? "" : " for " + targetPlayer.getName()), false);
                 String tag = StringUtils.join(args, " ", 1, args.length);
                 target.setTag(tag);
                 msg((init == null ? "Your" : targetPlayer.getName() + "'s") + " default tag is now: " + FUtil.colorize(target.getTag()));
@@ -192,7 +192,7 @@ public class Command_myadmin extends FreedomCommand
             
             case "cleartag":
             {
-                FUtil.adminAction(sender.getName(), "Clearing personal default tag" + (init == null ? "" : " for " + targetPlayer.getName()), false);
+                FUtil.staffAction(sender.getName(), "Clearing personal default tag" + (init == null ? "" : " for " + targetPlayer.getName()), false);
                 String tag = StringUtils.join(args, " ", 1, args.length);
                 target.setTag(null);
                 plugin.al.save();

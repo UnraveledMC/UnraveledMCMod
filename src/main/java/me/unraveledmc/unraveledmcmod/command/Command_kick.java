@@ -41,11 +41,11 @@ public class Command_kick extends FreedomCommand
         if (reason != null)
         {
             builder.append("\n").append(ChatColor.RED).append("Reason: ").append(ChatColor.GOLD).append(reason);
-            FUtil.adminAction(sender.getName(), "Kicking " + player.getName() + " - Reason: " + reason, true);
+            FUtil.staffAction(sender.getName(), "Kicking " + player.getName() + " - Reason: " + reason, true);
         }
         else
         {
-            FUtil.adminAction(sender.getName(), "Kicking " + player.getName(), true);
+            FUtil.staffAction(sender.getName(), "Kicking " + player.getName(), true);
         }
 
         player.kickPlayer(builder.toString());

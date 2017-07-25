@@ -96,7 +96,7 @@ public class Command_ro extends FreedomCommand
         int affected = 0;
         if (targetPlayer == null)
         {
-            FUtil.adminAction(sender.getName(), "Removing all " + names + " within " + radius + " blocks of all players... Brace for lag!", false);
+            FUtil.staffAction(sender.getName(), "Removing all " + names + " within " + radius + " blocks of all players... Brace for lag!", false);
 
             for (final Player player : server.getOnlinePlayers())
             {
@@ -117,13 +117,13 @@ public class Command_ro extends FreedomCommand
             {
                 for (Material material : materials)
                 {
-                    FUtil.adminAction(sender.getName(), "Removing all " + names + " within " + radius + " blocks of " + targetPlayer.getName(), false);
+                    FUtil.staffAction(sender.getName(), "Removing all " + names + " within " + radius + " blocks of " + targetPlayer.getName(), false);
                     affected += replaceBlocks(targetPlayer.getLocation(), material, Material.AIR, radius);
                 }
             }
         }
 
-        FUtil.adminAction(sender.getName(), "Remove complete! " + affected + " blocks removed.", false);
+        FUtil.staffAction(sender.getName(), "Remove complete! " + affected + " blocks removed.", false);
 
         return true;
     }

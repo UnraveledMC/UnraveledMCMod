@@ -37,7 +37,7 @@ public class Command_deop extends FreedomCommand
             player = DepreciationAggregator.getOfflinePlayer(server, args[0]);
         }
 
-        FUtil.adminAction(sender.getName(), "De-opping " + player.getName(), false);
+        FUtil.staffAction(sender.getName(), "De-opping " + player.getName(), false);
 
         player.setOp(false);
         plugin.da.setAdminDeopped(player.getName(), true);

@@ -60,7 +60,7 @@ public class Command_orbit extends FreedomCommand
         playerdata.startOrbiting(strength);
 
         player.setVelocity(new Vector(0, strength, 0));
-        FUtil.adminAction(sender.getName(), "Orbiting " + player.getName(), false);
+        FUtil.staffAction(sender.getName(), "Orbiting " + player.getName(), false);
 
         return true;
     }

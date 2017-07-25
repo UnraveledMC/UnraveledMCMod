@@ -132,7 +132,7 @@ public class FUtil
         player.setFlying(flying);
     }
 
-    public static void adminAction(String adminName, String action, boolean isRed)
+    public static void staffAction(String adminName, String action, boolean isRed)
     {
         FUtil.bcastMsg(adminName + " " + Character.toString((char)0x00BB) + " " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
     }

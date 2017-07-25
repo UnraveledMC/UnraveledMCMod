@@ -53,7 +53,7 @@ public class Command_tban extends FreedomCommand
             }
         }
 
-        FUtil.adminAction(sender.getName(), "Tempbanning: " + player.getName() + " for 5 minutes.", true);
+        FUtil.staffAction(sender.getName(), "Tempbanning: " + player.getName() + " for 5 minutes.", true);
         plugin.bm.addBan(Ban.forPlayer(player, sender, FUtil.parseDateOffset("5m"), reason));
 
         player.kickPlayer(ChatColor.RED + "You have been temporarily banned for five minutes. Please read " + ConfigEntry.SERVER_BAN_URL.getString() +  " for more info.");

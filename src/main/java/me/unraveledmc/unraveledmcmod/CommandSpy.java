@@ -32,7 +32,7 @@ public class CommandSpy extends FreedomService
         {
             if (plugin.al.isStaffMember(player) && plugin.pl.getPlayer(player).cmdspyEnabled() && event.getPlayer() != player)
             {
-                if (plugin.al.isStaffMember(event.getPlayer()) && !ConfigEntry.SERVER_OWNERS.getStringList().contains(player.getName()) || !ConfigEntry.SERVER_FOUNDERS.getStringList().contains(player.getName()) || !FUtil.UMCDEVS.contains(player.getName()))
+                if (plugin.al.isStaffMember(event.getPlayer()) && !ConfigEntry.SERVER_OWNERS.getStringList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getStringList().contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()))
                 {
                     continue;
                 }

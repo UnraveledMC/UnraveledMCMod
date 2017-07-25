@@ -14,7 +14,7 @@ public class Command_denick extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        FUtil.adminAction(sender.getName(), "Removing all nicknames", false);
+        FUtil.staffAction(sender.getName(), "Removing all nicknames", false);
 
         for (Player player : server.getOnlinePlayers())
         {

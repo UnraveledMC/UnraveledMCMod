@@ -47,7 +47,7 @@ public class Command_stfu extends FreedomCommand
 
         if (args[0].equalsIgnoreCase("purge"))
         {
-            FUtil.adminAction(sender.getName(), "Unmuting all players.", true);
+            FUtil.staffAction(sender.getName(), "Unmuting all players.", true);
             FPlayer info;
             int count = 0;
             for (Player mp : server.getOnlinePlayers())
@@ -65,7 +65,7 @@ public class Command_stfu extends FreedomCommand
 
         if (args[0].equalsIgnoreCase("all"))
         {
-            FUtil.adminAction(sender.getName(), "Muting all non-staff", true);
+            FUtil.staffAction(sender.getName(), "Muting all non-staff", true);
 
             FPlayer playerdata;
             int counter = 0;
@@ -105,7 +105,7 @@ public class Command_stfu extends FreedomCommand
         FPlayer playerdata = plugin.pl.getPlayer(player);
         if (playerdata.isMuted())
         {
-            FUtil.adminAction(sender.getName(), "Unmuting " + player.getName(), true);
+            FUtil.staffAction(sender.getName(), "Unmuting " + player.getName(), true);
             playerdata.setMuted(false);
             msg("Unmuted " + player.getName());
 
@@ -119,7 +119,7 @@ public class Command_stfu extends FreedomCommand
                 return true;
             }
 
-            FUtil.adminAction(sender.getName(), "Muting " + player.getName(), true);
+            FUtil.staffAction(sender.getName(), "Muting " + player.getName(), true);
             playerdata.setMuted(true);
 
             if (smite)

@@ -54,7 +54,7 @@ public class Command_qop extends FreedomCommand
         {
             if (!silent)
             {
-                FUtil.adminAction(sender.getName(), "Opping " + StringUtils.join(matchedPlayerNames, ", "), false);
+                FUtil.staffAction(sender.getName(), "Opping " + StringUtils.join(matchedPlayerNames, ", "), false);
             }
         }
         else

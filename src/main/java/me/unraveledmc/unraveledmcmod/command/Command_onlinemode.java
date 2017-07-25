@@ -56,7 +56,7 @@ public class Command_onlinemode extends FreedomCommand
                     }
                 }
 
-                FUtil.adminAction(sender.getName(), "Turning player validation " + (onlineMode ? "on" : "off") + ".", true);
+                FUtil.staffAction(sender.getName(), "Turning player validation " + (onlineMode ? "on" : "off") + ".", true);
 
                 server.reload();
             }

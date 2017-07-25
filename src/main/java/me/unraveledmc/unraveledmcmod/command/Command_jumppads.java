@@ -33,12 +33,12 @@ public class Command_jumppads extends FreedomCommand
 
             if ("off".equals(args[0]))
             {
-                FUtil.adminAction(sender.getName(), "Disabling Jumppads", false);
+                FUtil.staffAction(sender.getName(), "Disabling Jumppads", false);
                 plugin.jp.setMode(Jumppads.JumpPadMode.OFF);
             }
             else
             {
-                FUtil.adminAction(sender.getName(), "Enabling Jumppads", false);
+                FUtil.staffAction(sender.getName(), "Enabling Jumppads", false);
                 plugin.jp.setMode(Jumppads.JumpPadMode.MADGEEK);
             }
         }
@@ -54,12 +54,12 @@ public class Command_jumppads extends FreedomCommand
             {
                 if ("off".equals(args[1]))
                 {
-                    FUtil.adminAction(sender.getName(), "Setting Jumppads mode to: Madgeek", false);
+                    FUtil.staffAction(sender.getName(), "Setting Jumppads mode to: Madgeek", false);
                     plugin.jp.setMode(Jumppads.JumpPadMode.MADGEEK);
                 }
                 else
                 {
-                    FUtil.adminAction(sender.getName(), "Setting Jumppads mode to: Normal and Sideways", false);
+                    FUtil.staffAction(sender.getName(), "Setting Jumppads mode to: Normal and Sideways", false);
                     plugin.jp.setMode(Jumppads.JumpPadMode.NORMAL_AND_SIDEWAYS);
                 }
             }
@@ -82,7 +82,7 @@ public class Command_jumppads extends FreedomCommand
                     return true;
                 }
 
-                FUtil.adminAction(sender.getName(), "Setting Jumppads strength to: " + String.valueOf(strength), false);
+                FUtil.staffAction(sender.getName(), "Setting Jumppads strength to: " + String.valueOf(strength), false);
                 plugin.jp.setStrength((strength / 10) + 0.1F);
             }
             else
