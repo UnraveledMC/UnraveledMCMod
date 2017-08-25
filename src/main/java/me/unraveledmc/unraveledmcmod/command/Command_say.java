@@ -52,7 +52,7 @@ public class Command_say extends FreedomCommand
             }
         }
         
-        FUtil.bcastMsg(String.format("%s[Shout:%s] %s", FUtil.colorize(color), sender.getName(), message));
+        FUtil.bcastMsg(String.format("%s[Staff:%s] %s", FUtil.colorize(color), sender.getName(), message));
 
         return true;
     }
