@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.MOD, source = SourceType.BOTH)
-@CommandParameters(description = "Broadcasts the given message as the console, includes sender name.", usage = "/<command> <message>")
+@CommandParameters(description = "Broadcasts the given message as the console, includes sender name.", usage = "/<command> <message>", aliases = "broadcast,bc")
 public class Command_say extends FreedomCommand
 {
 
