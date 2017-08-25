@@ -49,17 +49,6 @@ public class Command_ban extends FreedomCommand
             final PlayerData entry = plugin.pl.getData(player);
             username = player.getName();
             ips.addAll(entry.getIps());
-            // Undo WorldEdits
-            try
-            {
-                plugin.web.undo(player, 15);
-            }
-            catch (NoClassDefFoundError ex)
-            {
-            }
-            
-            // Rollback edits
-            plugin.cpb.rollback(username);
 
             // Deop
             player.setOp(false);
