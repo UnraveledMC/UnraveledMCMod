@@ -73,9 +73,6 @@ public class Command_doom extends FreedomCommand
         // Ignite player
         player.setFireTicks(10000);
 
-        // Generate explosion
-        player.getWorld().createExplosion(player.getLocation(), 0F, false);
-
         // Shoot the player in the sky
         player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
 
