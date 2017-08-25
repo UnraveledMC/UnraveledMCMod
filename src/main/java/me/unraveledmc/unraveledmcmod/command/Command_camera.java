@@ -27,7 +27,7 @@ public class Command_camera extends FreedomCommand
             if (args[0].equalsIgnoreCase("throw"))
             {
                 FUtil.staffAction(playerSender.getName(), "Has thrown the fucking camera!", true);
-                playerSender.chat("Fuck you camera you're a bitch!");
+                playerSender.chat("Fuck this camera, I'm destroying it for youtube views!");
                 final Location targetPos = playerSender.getLocation();
                 final World world = playerSender.getWorld();
                 for (int x = -1; x <= 1; x++)
