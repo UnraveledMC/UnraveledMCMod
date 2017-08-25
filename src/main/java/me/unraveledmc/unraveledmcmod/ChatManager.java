@@ -163,7 +163,7 @@ public class ChatManager extends FreedomService
     public void adminChat(CommandSender sender, String message)
     {
         String name = sender.getName() + " " + plugin.rm.getDisplay(sender).getColoredTag() + ChatColor.WHITE;
-        FLog.info("[ADMIN] " + name + ": " + message);
+        FLog.info("[STAFF] " + name + ": " + message);
 
         for (Player player : server.getOnlinePlayers())
         {
