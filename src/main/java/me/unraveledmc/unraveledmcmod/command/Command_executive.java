@@ -101,7 +101,6 @@ public class Command_executive extends FreedomCommand
                             @Override
                             public void run()
                             {
-                                player.getWorld().createExplosion(player.getLocation(), 4F);
                                 banPlayer(player.getName(), "Get your fucking shit together and then call back kthx", true, false);
                                 FUtil.staffAction(cSender.getName(), "Has sent " + player.getName() + " to hell, IP: " + IP, true);
                                 player.kickPlayer(ChatColor.RED + "Welcome to hell you fucking cuck");
