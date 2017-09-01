@@ -47,7 +47,7 @@ public class Command_unraveledmcmod extends FreedomCommand
         msg("Compiled by: " + UnraveledMCMod.compiledBy, ChatColor.GOLD);
         msg("Compile date: " + UnraveledMCMod.buildDate, ChatColor.GOLD);
         msg("Running on " + ConfigEntry.SERVER_NAME.getString() + ".", ChatColor.GOLD);
-        msg("Created by AwesomePinch, CreeperSeth, aggelosQQ, RobinGall2910, and OxLemonxO.", ChatColor.GOLD);
+        msg("Created by AwesomePinch, ZeroEpoch1969, aggelosQQ, RobinGall2910, and OxLemonxO.", ChatColor.GOLD);
         msg("Visit " + ChatColor.AQUA + "http://unraveledmc.com" + ChatColor.GREEN + " for more information.", ChatColor.GREEN);
         return true;
     }

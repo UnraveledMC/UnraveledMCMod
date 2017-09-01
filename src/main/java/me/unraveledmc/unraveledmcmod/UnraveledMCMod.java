@@ -52,8 +52,8 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
     //
     public static String pluginName;
     public static String pluginVersion = "2.4";
-    public static String buildDate = "08/25/2017";
-    public static String compiledBy = "CreeperSeth";
+    public static String buildDate = "08/31/2017";
+    public static String compiledBy = "ZeroEpoch1969";
     //
     public MainConfig config;
     //
@@ -130,7 +130,7 @@ public class UnraveledMCMod extends AeroPlugin<UnraveledMCMod>
     public void enable()
     {
         FLog.info("Created by Madgeek1450 and Prozza");
-        FLog.info("Modified by CreeperSeth, AwesomePinch, and aggelosQQ");
+        FLog.info("Modified by ZeroEpoch1969, AwesomePinch, and aggelosQQ");
         FLog.info("Version " + pluginVersion);
 
         final MethodTimer timer = new MethodTimer();

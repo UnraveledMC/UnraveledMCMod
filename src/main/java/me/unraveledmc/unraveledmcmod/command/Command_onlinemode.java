@@ -16,7 +16,10 @@ public class Command_onlinemode extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (args.length < 1)
+        msg("As of August 6th, 2017 the server will always operate with onlinemode being activated.", ChatColor.RED);
+        return true;
+        
+        /*if (args.length < 1)
         {
             msg("Server is currently running with 'online-mode=" + (server.getOnlineMode() ? "true" : "false") + "'.", ChatColor.WHITE);
             msg("\"/onlinemode on\" and \"/onlinemode off\" can be used to change online mode from the console.", ChatColor.WHITE);
@@ -66,6 +69,6 @@ public class Command_onlinemode extends FreedomCommand
             }
         }
 
-        return true;
+        return true;*/
     }
 }
