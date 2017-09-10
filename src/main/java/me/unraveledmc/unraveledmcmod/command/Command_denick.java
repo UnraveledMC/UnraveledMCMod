@@ -24,6 +24,10 @@ public class Command_denick extends FreedomCommand
 
         for (Player player : server.getOnlinePlayers())
         {
+            if (plugin.al.isAdmin(player) && !includeStaff)
+            {
+                continue;
+            }
             plugin.esb.setNickname(player.getName(), null);
         }
 
