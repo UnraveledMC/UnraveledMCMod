@@ -27,6 +27,6 @@ You may download official binaries from the [releases page](https://github.com/T
 # UnraveledMCMod #
 UnraveledMCMod is a clone of TotalFreedomMod that's heavily modified. Now because it's cloned, we must comply with the TFM license:
 
-Due to the the TFM license, we are not allowed to publish official binaries of the plugin. You must compile the plugin with NetBeans. Attempting to obtain money for compiling the plugin is strictly forbidden and illegal.
+Due to the the TFM license, we are not allowed to publish binaries of the plugin. Only the official TFM developers are allowed to release compiled binaries. You must compile the plugin with NetBeans. Attempting to obtain money for compiling the plugin is strictly forbidden and illegal.
 
 You're also **not allowed** to send the compiled binaries of TFM/UMCM to anyone. That's against the TF license.
