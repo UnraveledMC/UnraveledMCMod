@@ -53,7 +53,7 @@ public class LoginProcess extends FreedomService
     public void onPlayerPreLogin(AsyncPlayerPreLoginEvent event)
     {
         final String ip = event.getAddress().getHostAddress().trim();
-        final boolean isAdmin = plugin.al.getEntryByIp(ip) != null;
+        final boolean isStaffMember = plugin.al.getEntryByIp(ip) != null;
 
         // Check if the player is already online
         for (Player onlinePlayer : server.getOnlinePlayers())
@@ -63,10 +63,10 @@ public class LoginProcess extends FreedomService
                 continue;
             }
 
-            if (isAdmin)
+            if (isStaffMember)
             {
                 event.allow();
-                FSync.playerKick(onlinePlayer, "An admin just logged in with the username you are using.");
+                FSync.playerKick(onlinePlayer, "A staff member just logged in with the username you are using.");
                 return;
             }
 
@@ -119,12 +119,11 @@ public class LoginProcess extends FreedomService
             }
         }
 
-        // Check if player is admin
-        // Not safe to use TFM_Util.isSuperAdmin(player) because player.getAddress() will return a null until after player login.
-        final boolean isAdmin = plugin.al.getEntryByIp(ip) != null;
+        // Check if player is a staff member
+        final boolean isStaffMember = plugin.al.getEntryByIp(ip) != null;
 
         // Validation below this point
-        if (isAdmin) // Player is an admin
+        if (isStaffMember) // Player is a staff member
         {
             // Force-allow log in
             event.allow();
@@ -136,7 +135,7 @@ public class LoginProcess extends FreedomService
                 {
                     if (!plugin.al.isStaffMember(onlinePlayer))
                     {
-                        onlinePlayer.kickPlayer("You have been kicked to free up room for an admin.");
+                        onlinePlayer.kickPlayer("You have been kicked to free up room for a staff member.");
                         count--;
                     }
 
@@ -156,7 +155,7 @@ public class LoginProcess extends FreedomService
             return;
         }
 
-        // Player is not an admin
+        // Player is not a staff member
         // Server full check
         if (server.getOnlinePlayers().size() >= server.getMaxPlayers())
         {
