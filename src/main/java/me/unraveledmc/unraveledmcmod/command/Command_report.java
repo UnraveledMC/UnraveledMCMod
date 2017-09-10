@@ -48,7 +48,7 @@ public class Command_report extends FreedomCommand
         String report = StringUtils.join(ArrayUtils.subarray(args, 1, args.length), " ");
         plugin.cm.reportAction(playerSender, player, report);
 
-        msg(ChatColor.GREEN + "Thank you, all online staff members have been notified. Please note that only the current online admins will see it.");
+        msg(ChatColor.GREEN + "Thank you, all online staff members have been notified." + ChatColor.RED + "Please note that only the current online admins will see it" + ChatColor.GREEN + ".");
 
         return true;
     }
