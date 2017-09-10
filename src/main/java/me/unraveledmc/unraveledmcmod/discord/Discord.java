@@ -4,9 +4,11 @@ import me.unraveledmc.unraveledmcmod.discord.MessageListener;
 import me.unraveledmc.unraveledmcmod.util.FLog;
 import me.unraveledmc.unraveledmcmod.staff.StaffMember;
 import me.unraveledmc.unraveledmcmod.config.ConfigEntry;
-import net.dv8tion.jda.JDA;
-import net.dv8tion.jda.JDABuilder;
-import net.dv8tion.jda.entities.MessageChannel;
+import net.dv8tion.jda.core.JDA;
+import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.core.entities.MessageChannel;
+import net.dv8tion.jda.core.AccountType;
+import net.dv8tion.jda.core.exceptions.RateLimitedException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
@@ -50,13 +52,17 @@ public class Discord extends FreedomService
         {
             if (enabled)
             {
-                bot = new JDABuilder().setBotToken(ConfigEntry.DISCORD_VERIFICATION_BOT_TOKEN.getString()).addListener(new MessageListener()).setAudioEnabled(false).setAutoReconnect(true).buildBlocking();
+                bot = new JDABuilder(AccountType.BOT).setToken(ConfigEntry.DISCORD_VERIFICATION_BOT_TOKEN.getString()).addEventListener(new MessageListener()).setAudioEnabled(false).setAutoReconnect(true).buildBlocking();
                 FLog.info("Discord verification bot has successfully enabled!");
             }
         }
         catch (LoginException e)
         {
             FLog.warning("An invalid token for the discord verification bot, the bot will not enable.");
+        }
+        catch (RateLimitedException e)
+        {
+            FLog.warning("The discord verification bot was ratelimited trying to login, please try again later.");
         }
         catch (IllegalArgumentException | InterruptedException e)
         {

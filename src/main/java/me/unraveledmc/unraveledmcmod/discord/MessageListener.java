@@ -1,14 +1,14 @@
 package me.unraveledmc.unraveledmcmod.discord;
 
 import me.unraveledmc.unraveledmcmod.staff.StaffMember;
-import net.dv8tion.jda.events.message.priv.PrivateMessageReceivedEvent;
-import net.dv8tion.jda.hooks.ListenerAdapter;
+import net.dv8tion.jda.core.events.message.priv.PrivateMessageReceivedEvent;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class MessageListener extends ListenerAdapter
 {
     public void onPrivateMessageReceived(PrivateMessageReceivedEvent event)
     {
-        if (!event.getAuthor().getId().equals(Discord.bot.getSelfInfo().getId()))
+        if (!event.getAuthor().getId().equals(Discord.bot.getSelfUser().getId()))
         {
             
             // Handle link code

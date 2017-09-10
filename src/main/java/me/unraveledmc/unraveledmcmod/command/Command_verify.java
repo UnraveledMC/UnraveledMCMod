@@ -50,7 +50,7 @@ public class Command_verify extends FreedomCommand
                 code += random.nextInt(10);
             }
             plugin.dc.VERIFY_CODES.add(code);
-            plugin.dc.sendMessage(plugin.dc.bot.getUserById(staffMember.getDiscordID()).getPrivateChannel(), "A user with the ip `" + Ips.getIp(playerSender) + "` has sent a verification request. Please run the following in-game command: `/verify " + code + "`");
+            plugin.dc.bot.getUserById(staffMember.getDiscordID()).openPrivateChannel().complete().sendMessage("A user with the ip `" + Ips.getIp(playerSender) + "` has sent a verification request. Please run the following in-game command: `/verify " + code + "`");
             msg("A verification code has been sent to your account, please copy the code and do /verify <code>", ChatColor.GREEN);
         }
         else
