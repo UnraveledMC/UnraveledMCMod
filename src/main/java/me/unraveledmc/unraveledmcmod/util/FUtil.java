@@ -45,7 +45,7 @@ public class FUtil
     // Leave the TFDEVS List alone, those are the TotalFreedom Developers.
     public static final List<String> TFDEVS = Arrays.asList("Madgeek1450", "Prozza", "Wild1145", "WickedGamingUK", "aggelosQQ");
     public static final List<String> UMCDEVS = Arrays.asList("ZeroEpoch1969", "RobinGall2910", "AwesomePinch", "aggelosQQ", "irix", "OxLemonxO");
-    public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
+    public static String DATE_STORAGE_FORMAT = "EEE, MMM d yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<>();
     public static final List<ChatColor> CHAT_COLOR_POOL = Arrays.asList(
             ChatColor.DARK_BLUE,
