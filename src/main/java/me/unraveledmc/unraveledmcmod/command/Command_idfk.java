@@ -16,7 +16,8 @@ public class Command_idfk extends FreedomCommand
             "ooga boga ooga boga ooga boga ooga boga", "jake u dog fukr", "nero is a nice black pussy",
             "robin has a perfect penis", "ABABABABABABABABABA ABAOBOABOBA", "agge is a fuckin egg",
             "explosive errors == explosive arrows", "sync; echo 3 > /proc/sys/vm/drop_caches", "yeet",
-            "si", "bubble bass thicc :weary::sweat_drops: :ok_hand:"};
+            "si", "bubble bass thicc :weary::sweat_drops: :ok_hand:", "diabeetus", "McDiabeto", "oh",
+            "say heck to diabetes im having chocolate cake"};
     
     private static final Random random = new Random();
 
