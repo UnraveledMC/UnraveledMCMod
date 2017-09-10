@@ -22,11 +22,7 @@ server:
     - aggelosQQ
 
   # All players who show up as executive
-  execs:
-    - irix
-    - bobscog
-    - TheHour
-    - Mark_the_Dragon
+  execs: []
     
   # All players who show up as donators
   donors: []
@@ -35,10 +31,10 @@ server:
   master_builders: []
 
   # URL players should appeal for bans at
-  ban_url: http://unraveledmc.com/forum/
+  ban_url: https://f.unraveledmc.com
 
   # URL players should appeal for permanent bans at
-  permban_url: http://unraveledmc.com/forum/
+  permban_url: https://f.unraveledmc.com
   
 # Shown at the server list
 motd:
@@ -91,7 +87,7 @@ shop:
   
 # Staff
 staff:
-  # Message to display to staff members when they login (supports color codes and is multiple line)
+  # Message to display to staff members when they login (supports color codes and is multi-line)
   staff_login_message:
     - '&2Welcome back staff member!'
     - '&cBe sure to keep an eye on the ops!'
@@ -427,7 +423,7 @@ service_checker_url: http://status.mojang.com/check
 
 # HTTPD server
 httpd:
-  enabled: true
+  enabled: false
   port: 28366
   public_folder: ././././././././var/www/html
 
