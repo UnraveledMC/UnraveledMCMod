@@ -10,15 +10,3 @@ awesomepinch:
   - 8.8.4.4
   last_login: Wed, 2 Apr 2016 16:08:39 +0000
   login_message: 'the &2Owner&b of &7Unraveled&8MC&b!'
-  
-zeroepoch1969:
-  username: ZeroEpoch1969
-  active: true
-  rank: SENIOR_ADMIN
-  ips:
-  - 127.0.0.1
-  last_login: Tue, 11 Sep 2001 12:46:00 +0000
-  login_message: 'the &5Lead Developer&b and a &4Witch Loli'
-  shout_color: '&4&l'
-  discord_id: '169597963507728384'
-  tag: '&8[&4Witch Loli&8] [&5Lead-Dev&8]'
