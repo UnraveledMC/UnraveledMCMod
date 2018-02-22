@@ -112,11 +112,6 @@ public class Command_shop extends FreedomCommand
         is.setItemMeta(m);
         return is;
     }
-    
-    public ItemStack newShopItem(Material mat, ChatColor color, String name, int price, Boolean purchased)
-    {
-        return newShopItem(new ItemStack(mat), color, name, price, purchased);
-    }
 }
 /*
         Shop layout:

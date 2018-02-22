@@ -111,21 +111,6 @@ public enum Rank implements Displayable
         }
     }
 
-    public Rank getPlayerVariant()
-    {
-        switch (this)
-        {
-            case ADMIN:
-            case ADMIN_CONSOLE:
-                return ADMIN;
-            case SENIOR_ADMIN:
-            case SENIOR_CONSOLE:
-                return SENIOR_ADMIN;
-            default:
-                return null;
-        }
-    }
-
     public static Rank findRank(String string)
     {
         try

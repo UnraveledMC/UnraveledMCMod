@@ -36,8 +36,6 @@ public enum ConfigEntry
     SERVER_OWNERS(List.class, "server.owners"),
     SERVER_FOUNDERS(List.class, "server.founders"),
     SERVER_EXECS(List.class, "server.execs"),
-    SERVER_MASTER_BUILDERS(List.class, "server.master_builders"),
-    SERVER_DONORS(List.class, "server.donors"),
     SERVER_BAN_URL(String.class, "server.ban_url"),
     SERVER_PERMBAN_URL(String.class, "server.permban_url"),
     //

@@ -1,4 +1,3 @@
-
 package me.unraveledmc.unraveledmcmod.command;
 
 import me.unraveledmc.unraveledmcmod.rank.Rank;

@@ -169,6 +169,7 @@ public class Command_saconfig extends FreedomCommand
 
                     FUtil.staffAction(sender.getName(), "Adding " + player.getName() + " to the staff list", true);
                     plugin.al.addStaffMember(new StaffMember(player));
+                    plugin.rm.updateDisplay(player);
                 }
                 else // Existing staff member
                 {
@@ -185,6 +186,7 @@ public class Command_saconfig extends FreedomCommand
 
                     plugin.al.save();
                     plugin.al.updateTables();
+                    plugin.rm.updateDisplay(player);
                 }
 
                 if (player != null)
@@ -222,6 +224,7 @@ public class Command_saconfig extends FreedomCommand
                 staffMember.setActive(false);
                 plugin.al.save();
                 plugin.al.updateTables();
+                plugin.rm.updateDisplay(player);
                 return true;
             }
 

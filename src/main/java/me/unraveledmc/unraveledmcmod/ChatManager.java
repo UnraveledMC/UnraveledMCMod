@@ -22,13 +22,10 @@ public class ChatManager extends FreedomService
     public static boolean scr = false;
     public static boolean scn = false;
     // Putting an end to free hosted server advertisements
-    public static final List<String> DISGUSTING_HOST_DOMAINS = Arrays.asList(new String[]
-            {
-                "my-serv.com", "mymcserver.org", "serv.gs", "myserver.gs", "g-s.nu", "mcserv.me",
-                "mcpro.io", "1337srv.com", "mcnetwork.me", "serv.nu", "mygs.co", "mchosting.pro",
-                "server-minecraft.pro", "mcraft.pro", "mcserv.pro", "mchost.pro", "crafted.pro", 
-                "cubed.pro", "minecraft-crafting.pro", "aternos.me"
-            });
+    public static final List<String> DISGUSTING_HOST_DOMAINS = Arrays.asList("my-serv.com", "mymcserver.org", "serv.gs", "myserver.gs", "g-s.nu", "mcserv.me",
+            "mcpro.io", "1337srv.com", "mcnetwork.me", "serv.nu", "mygs.co", "mchosting.pro",
+            "server-minecraft.pro", "mcraft.pro", "mcserv.pro", "mchost.pro", "crafted.pro",
+            "cubed.pro", "minecraft-crafting.pro", "aternos.me");
 
     public ChatManager(UnraveledMCMod plugin)
     {

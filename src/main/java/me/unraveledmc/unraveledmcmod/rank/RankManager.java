@@ -61,17 +61,23 @@ public class RankManager extends FreedomService
         {
             return Title.UMCDEV;
         }
-        
-        // Master builders show up if they are not admins
-        if (ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(player.getName()) && !plugin.al.isStaffMember(player))
+
+        // If the player's an owner, display that
+        if (ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
-            return Title.MASTER_BUILDER;
+            return Title.OWNER;
         }
-        
-        // If the player is a donator, display thar
-        if (ConfigEntry.SERVER_DONORS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_EXECS.getList().contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()))
+
+        // If the player's the founder, display that
+        if (ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
         {
-            return Title.DONOR;
+            return Title.FOUNDER;
+        }
+
+        // If the player's an executive, display that
+        if (ConfigEntry.SERVER_EXECS.getList().contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
+        {
+            return Title.EXEC;
         }
 
         final Rank rank = getRank(player);
@@ -80,24 +86,6 @@ public class RankManager extends FreedomService
         if (!rank.isStaff())
         {
             return rank;
-        }
-
-        // If the player's an owner, display that
-        if (ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
-        {
-            return Title.OWNER;
-        }
-        
-        // If the player's the founder, display that
-        if (ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
-        {
-            return Title.FOUNDER;
-        }
-        
-        // If the player's an executive, display that
-        if (ConfigEntry.SERVER_EXECS.getList().contains(player.getName()) && !FUtil.UMCDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) && !ConfigEntry.SERVER_FOUNDERS.getList().contains(player.getName()) && !plugin.al.isStaffImposter(player))
-        {
-            return Title.EXEC;
         }
         
         return rank;
@@ -151,6 +139,29 @@ public class RankManager extends FreedomService
         return player.isOp() ? Rank.OP : Rank.NON_OP;
     }
 
+    public void updateDisplay(Player player)
+    {
+        if (player.isOnline())
+        {
+            FPlayer fPlayer = plugin.pl.getPlayer(player);
+            if (plugin.al.isStaffMember(player))
+            {
+                Displayable display = getDisplay(player);
+                if (fPlayer.getTag() == null)
+                {
+                    fPlayer.setTag(display.getColoredTag());
+                }
+                String displayName = display.getColor() + player.getName();
+                player.setPlayerListName(StringUtils.substring(displayName, 0, 16));
+            }
+            else
+            {
+                fPlayer.setTag(null);
+                player.setPlayerListName(null);
+            }
+        }
+    }
+
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerJoin(PlayerJoinEvent event)
     {
@@ -179,6 +190,8 @@ public class RankManager extends FreedomService
         {
             FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + Rank.IMPOSTOR.getColoredLoginMessage());
             FUtil.bcastMsg("Warning: " + player.getName() + " has been flagged as an impostor and has been frozen!", ChatColor.RED);
+            String displayName = Rank.IMPOSTOR.getColor() + player.getName();
+            player.setPlayerListName(StringUtils.substring(displayName, 0, 16));
             player.getInventory().clear();
             player.setOp(false);
             player.setGameMode(GameMode.SURVIVAL);
@@ -206,33 +219,14 @@ public class RankManager extends FreedomService
             plugin.pl.getPlayer(player).setTag(display.getColoredTag());
             if (plugin.al.isStaffMember(player))
             {
-                StaffMember admin = plugin.al.getStaffMember(player);
-                if (admin.getTag() != null)
+                StaffMember staffMember = plugin.al.getStaffMember(player);
+                if (staffMember.getTag() != null)
                 {
-                    plugin.pl.getPlayer(player).setTag(FUtil.colorize(admin.getTag()));
+                    plugin.pl.getPlayer(player).setTag(FUtil.colorize(staffMember.getTag()));
                 }
             }
 
             String displayName = display.getColor() + player.getName();
-            try
-            {
-                player.setPlayerListName(StringUtils.substring(displayName, 0, 16));
-            }
-            catch (IllegalArgumentException ex)
-            {
-            }
-        }
-        if (!plugin.al.isStaffMember(player) && ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(player.getName()))
-        {
-            ShopData sd = plugin.sh.getData(player);
-            final Displayable display = getDisplay(player);
-            String loginMsg = display.getColoredLoginMessage();
-            if ("none".equals(sd.getLoginMessage()))
-            {
-                FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + loginMsg);
-            }
-            String displayName = display.getColor() + player.getName();
-            plugin.pl.getPlayer(player).setTag(display.getColoredTag());
             try
             {
                 player.setPlayerListName(StringUtils.substring(displayName, 0, 16));

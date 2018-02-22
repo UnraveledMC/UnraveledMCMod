@@ -60,10 +60,6 @@ public class Discord extends FreedomService
         {
             FLog.warning("An invalid token for the discord verification bot, the bot will not enable.");
         }
-        catch (RateLimitedException e)
-        {
-            FLog.warning("The discord verification bot was ratelimited trying to login, please try again later.");
-        }
         catch (IllegalArgumentException | InterruptedException e)
         {
             FLog.warning("Discord verification bot failed to start.");

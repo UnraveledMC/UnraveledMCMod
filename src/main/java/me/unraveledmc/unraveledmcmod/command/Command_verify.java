@@ -66,15 +66,13 @@ public class Command_verify extends FreedomCommand
                 plugin.dc.VERIFY_CODES.remove(code);
                 FUtil.bcastMsg(playerSender.getName() + " has verified themself!", ChatColor.GOLD);
                 FUtil.staffAction(ConfigEntry.SERVER_NAME.getString(), "Readding " + staffMember.getName() + " to the staff list", true);
-                if (playerSender != null)
-                {
-                    staffMember.setName(playerSender.getName());
-                    staffMember.addIp(Ips.getIp(playerSender));
-                }
+                staffMember.setName(playerSender.getName());
+                staffMember.addIp(Ips.getIp(playerSender));
                 staffMember.setActive(true);
                 staffMember.setLastLogin(new Date());
                 plugin.al.save();
                 plugin.al.updateTables();
+                plugin.rm.updateDisplay(playerSender);
                 final FPlayer fPlayer = plugin.pl.getPlayer(playerSender);
                 if (fPlayer.getFreezeData().isFrozen())
                 {

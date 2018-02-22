@@ -12,16 +12,15 @@ public class MessageListener extends ListenerAdapter
         {
             
             // Handle link code
-            if (event.getMessage().getRawContent().matches("[0-9][0-9][0-9][0-9][0-9]"))
+            String code = event.getMessage().getContentRaw();
+            if (code.matches("[0-9][0-9][0-9][0-9][0-9]"))
             {
-                String code = event.getMessage().getRawContent();
                 if (Discord.LINK_CODES.get(code) != null)
                 {
                     StaffMember staffMember = Discord.LINK_CODES.get(code);
                     staffMember.setDiscordID(event.getMessage().getAuthor().getId());
                     Discord.LINK_CODES.remove(code);
-                    Discord.sendMessage(event.getChannel(), "Link successful. Now this Discord account is linked with the Minecraft account `" + staffMember.getName() + "`.");
-                    Discord.sendMessage(event.getChannel(), "Now when you are an impostor on the server you may now use `/verify` to verify.");
+                    event.getChannel().sendMessage("Link successful. Now this Discord account is linked with the Minecraft account `" + staffMember.getName() + "`.\nNow when you are an impostor on the server, you may use `/verify` to verify.").complete();
                 }
             }
         }

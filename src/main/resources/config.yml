@@ -13,8 +13,8 @@ server:
 
   # All players who show up as owner
   owners:
-    - Skoonk_and_Xeoda
-    - RobinGall2910
+    - AwesomePinch
+    - ZeroEpoch1969
 
   # All players whos how up as founder
   founders:
@@ -23,12 +23,6 @@ server:
 
   # All players who show up as executive
   execs: []
-    
-  # All players who show up as donators
-  donors: []
-
-  # All players who show up as master builder
-  master_builders: []
 
   # URL players should appeal for bans at
   ban_url: https://f.unraveledmc.com
@@ -342,9 +336,9 @@ announcer:
     - 'You may view all online staff via "/list -s"'
     - 'Save your buildings via WorldEdit! https://f.unraveledmc.com for more information!'
     - 'We are an offline/cracked server!'
-    - 'AwesomePinch, Skoonk_and_Xeoda, and RobinGall2910 are the owners of UnraveledMC.'
+    - 'Pinchyy and ZeroEpoch1969 are the owners of UnraveledMC.'
     - 'Server lagging? Check the lag via "/tps"'
-    - 'AwesomePinch and aggelosQQ are the founders of UnraveledMC.'
+    - 'Pinchyy is the founder of UnraveledMC.'
     - 'You are allowed to record and stream videos on UnraveledMC.'
     - 'Spawn killing is forbidden!'
     - 'Invisible potions are allowed!'

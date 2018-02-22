@@ -25,17 +25,6 @@ public class Command_wipeflatlands extends FreedomCommand
             player.kickPlayer("Server is going offline for flatlands wipe, come back in a few minutes.");
         }
 
-        new BukkitRunnable()
-        {
-            @Override
-            public void run()
-            {
-                /* Note: If the database is really big the server will not have enough time to wipe
-                the flatlands - it'll just restart before wiping the db and the flatlands*/
-                plugin.cpb.clearDatabase(plugin.wm.flatlands.getWorld(), true);
-            }
-        }.runTaskAsynchronously(plugin);
-
         return true;
     }
 }
