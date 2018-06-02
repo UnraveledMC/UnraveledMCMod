@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="UnraveledMCMod:jar">
+    <output-path>$PROJECT_DIR$/target/</output-path>
+    <root id="archive" name="UnraveledMCMod.jar">
+      <element id="module-output" name="UnraveledMCMod" />
+      <element id="artifact" artifact-name="JDA-3_6_0_354-withDependencies" />
+    </root>
+  </artifact>
+</component>

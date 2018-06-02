@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CoreProtect_2.14.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/CoreProtect_2.14.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

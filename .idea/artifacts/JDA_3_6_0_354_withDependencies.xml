@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact name="JDA-3_6_0_354-withDependencies">
+    <output-path>$PROJECT_DIR$/target/artifacts/JDA_3_6_0_354_withDependencies</output-path>
+    <root id="root">
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/JDA-3.6.0_354-withDependencies.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

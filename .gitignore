@@ -16,10 +16,10 @@ manifest.mf
 /.settings
 
 # IntelliJ excludes
-*.iml
-*.ipr
-*.iws
-/.idea
+#*.iml
+#*.ipr
+#*.iws
+#/.idea
 
 # Maven excludes
 /target
